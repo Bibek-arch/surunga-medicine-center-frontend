@@ -101,7 +101,7 @@ const Layout = ({ children }) => {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <div className="space-y-3">
-              <h3 className="text-2xl font-semibold">Surunga Medicine Center</h3>
+              <h3 className="text-2xl font-semibold">Surunga Medicine & Clinic</h3>
               <p className="text-blue-200">Providing quality healthcare services since 2000</p>
             </div>
             <div className="space-y-2">

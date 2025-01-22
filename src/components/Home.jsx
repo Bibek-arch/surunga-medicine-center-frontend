@@ -1322,7 +1322,7 @@ const Home = () => {
             <p className="text-gray-700 mb-2">Location: Kanakai-03, Surunga, Jhapa</p>
             <p className="text-gray-700 mb-2">Phone: 023-553097 | 9804964107</p>
             <p className="text-gray-700 mb-6">Email: surungamedicineclinic@gmail.com</p>
-            <Link to="/request-call">
+            <Link to="/contact-us">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
