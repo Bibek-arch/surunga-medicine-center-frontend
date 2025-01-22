@@ -159,7 +159,7 @@ function AboutUs() {
         {/* Contact Details */}
         <motion.div className="bg-white shadow-lg rounded-lg p-6" {...fadeInUp} transition={{ delay: 0.2 }}>
           <h3 className="text-2xl font-bold text-blue-700 mb-4 flex items-center">
-            <FaPhoneAlt className="mr-2" /> Contact Us
+            <FaPhoneAlt className="mr-2" /> Contact Us 
           </h3>
           <ul className="text-gray-600 space-y-4 text-lg">
             <li className="flex items-center">
@@ -183,7 +183,7 @@ function AboutUs() {
             <li className="flex items-center">
               <FaClock className="mr-2 text-blue-600" />
               <span>
-                <strong>Hours:</strong> Always Open: 6 AM - 8 PM
+                <strong>Hours:</strong> Always Open  6 AM - 8 PM
               </span>
             </li>
           </ul>
