@@ -77,7 +77,7 @@ function AboutUs() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-5xl font-extrabold text-blue-700 mb-4">Welcome to Surunga Medicine Center</h1>
+        <h1 className="text-5xl font-extrabold text-blue-700 mb-4">Welcome to Surunga Medicine & Clinic</h1>
         <p className="text-xl text-gray-600 mt-2">Caring for the community with compassion and excellence</p>
       </motion.header>
 
@@ -87,7 +87,7 @@ function AboutUs() {
           <FaStethoscope className="mr-2" /> About Us
         </h2>
         <p className="text-gray-600 leading-relaxed text-lg">
-          Surunga Medicine Center is more than just a healthcare facility; we're a beacon of hope and healing in our
+          Surunga Medicine Center & clinic is more than just a healthcare facility; we're a beacon of hope and healing in our
           community. Our state-of-the-art medical center is staffed by compassionate professionals dedicated to your
           well-being. We combine cutting-edge technology with a warm, patient-first approach to ensure you receive the
           best care possible.
@@ -141,7 +141,7 @@ function AboutUs() {
             {/* Clinic Marker with larger icon */}
             <Marker position={[clinicLocation.lat, clinicLocation.lng]} icon={clinicIcon}>
               <Popup>
-                <strong>Surunga Medicine Center</strong>
+                <strong>Surunga Medicine & Clinic</strong>
                 <br />
                 Your trusted healthcare partner.
               </Popup>
@@ -187,7 +187,7 @@ function AboutUs() {
               </span>
             </li>
           </ul>
-          <motion.a
+          {/* <motion.a
             href="https://www.google.com/maps/dir/?api=1&destination=26.641295672353664,87.89028896698203"
             target="_blank"
             rel="noopener noreferrer"
@@ -196,7 +196,32 @@ function AboutUs() {
             whileTap={{ scale: 0.95 }}
           >
             Get Directions
-          </motion.a>
+          </motion.a> */}
+            <motion.a
+      href="#"
+      onClick={(e) => {
+        e.preventDefault(); // Prevent navigation if location is not set yet
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const origin = `${position.coords.latitude},${position.coords.longitude}`;
+            const destination = "26.641295672353664,87.89028896698203";
+            const mapUrl = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}`;
+            window.open(mapUrl, "_blank");
+          },
+          (error) => {
+            alert("Could not determine your location. Please enable location services.");
+          }
+        );
+      }}
+      rel="noopener noreferrer"
+      className="inline-block mt-6 px-6 py-3 bg-blue-700 text-white rounded-lg shadow-md hover:bg-blue-800 transition duration-300"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      Get Directions
+    </motion.a>
+
+
         </motion.div>
       </div>
 

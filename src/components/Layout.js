@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
         <div className="container mx-auto flex justify-between items-center p-3">
           <Link to="/" className="text-1xl lg:text-2xl font-bold tracking-wide font-serif text-blue-800 hover:text-blue-600 transition-colors duration-300">
             <img src={favicon} alt="Surunga Medicine Center" className="w-10 h-10 inline-block mr-2" />
-            Surunga Medicine Center
+            Surunga Medicine & Clinic
           </Link>
 
           <div className="lg:hidden">
