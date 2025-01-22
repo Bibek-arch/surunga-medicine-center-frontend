@@ -183,7 +183,7 @@ function AboutUs() {
             <li className="flex items-center">
               <FaClock className="mr-2 text-blue-600" />
               <span>
-                <strong>Hours:</strong> Always hello Open  6 AM - 8 PM
+                <strong>Hours:</strong> Always Open  6 AM - 8 PM
               </span>
             </li>
           </ul>
