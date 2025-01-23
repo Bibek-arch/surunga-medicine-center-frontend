@@ -129,7 +129,7 @@ const Layout = ({ children }) => {
                 <a href="https://www.facebook.com/surungamedicine" className="text-blue-200 hover:text-white transition duration-300 ease-in-out text-2xl">
                   <FaFacebook /> 
                 </a>
-                <a href="https://wa.me/+9779804964107" className="text-blue-200 hover:text-white transition duration-300 ease-in-out text-2xl">
+                <a href="https://wa.me/9779804964107" className="text-blue-200 hover:text-white transition duration-300 ease-in-out text-2xl">
                   <FaWhatsapp />
                 </a>
                 <a href="tel:023-553097" className="text-blue-200 hover:text-white transition duration-300 ease-in-out text-2xl">
