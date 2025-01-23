@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
       <header className="fixed top-0 left-0 w-full bg-white bg-opacity-90 text-blue-900 shadow-lg z-50 backdrop-blur-md transition-all duration-300">
         <div className="container mx-auto flex justify-between items-center p-3">
           <Link to="/" className="text-1xl lg:text-2xl font-bold tracking-wide font-serif text-blue-800 hover:text-blue-600 transition-colors duration-300">
-            <img src={favicon} alt="Surunga Medicine Center" className="w-10 h-10 inline-block mr-2" />
+            <img src={favicon} alt="Surunga Medicine Center &" className="w-10 h-10 inline-block mr-2" />
             Surunga Medicine & Clinic
           </Link>
 

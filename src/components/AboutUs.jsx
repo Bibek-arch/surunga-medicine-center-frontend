@@ -77,7 +77,7 @@ function AboutUs() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-5xl font-extrabold text-blue-700 mb-4">Welcome to Surunga Medicine & Clinic</h1>
+        <h1 className="text-5xl font-extrabold text-blue-700 mb-4">Welcome to Surunga Medicine Center & Clinic</h1>
         <p className="text-xl text-gray-600 mt-2">Caring for the community with compassion and excellence</p>
       </motion.header>
 
@@ -89,8 +89,7 @@ function AboutUs() {
         <p className="text-gray-600 leading-relaxed text-lg">
           Surunga Medicine Center & clinic is more than just a healthcare facility; we're a beacon of hope and healing in our
           community. Our state-of-the-art medical center is staffed by compassionate professionals dedicated to your
-          well-being. We combine cutting-edge technology with a warm, patient-first approach to ensure you receive the
-          best care possible.
+          well-being.
         </p>
         <p className="text-gray-600 leading-relaxed text-lg mt-4">
           From routine check-ups to specialized treatments, we're here to support you on your journey to optimal health.
@@ -130,9 +129,9 @@ function AboutUs() {
       </div>
 
       {/* Geolocation and Contact Details Section */}
-      <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
+      <div className="grid md:grid-cols-2 gap-8 sm:grind-cols-1 items-center mb-12">
         {/* Map */}
-        <motion.div className="h-96 w-full rounded-lg overflow-hidden shadow-lg relative" {...fadeInUp}>
+        <motion.div className="h-full w-full rounded-lg overflow-hidden shadow-lg relative" {...fadeInUp}>
           <MapContainer center={[clinicLocation.lat, clinicLocation.lng]}  zoom={16} className="h-full w-full">
             
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
@@ -141,7 +140,7 @@ function AboutUs() {
             {/* Clinic Marker with larger icon */}
             <Marker position={[clinicLocation.lat, clinicLocation.lng]} icon={clinicIcon}>
               <Popup>
-                <strong>Surunga Medicine & Clinic</strong>
+                <strong>Surunga Medicine Center & Clinic</strong>
                 <br />
                 Your trusted healthcare partner.
               </Popup>
@@ -187,16 +186,7 @@ function AboutUs() {
               </span>
             </li>
           </ul>
-          {/* <motion.a
-            href="https://www.google.com/maps/dir/?api=1&destination=26.641295672353664,87.89028896698203"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-6 px-6 py-3 bg-blue-700 text-white rounded-lg shadow-md hover:bg-blue-800 transition duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Get Directions
-          </motion.a> */}
+          
             <motion.a
       href="#"
       onClick={(e) => {
