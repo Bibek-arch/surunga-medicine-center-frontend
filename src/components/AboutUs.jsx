@@ -62,7 +62,7 @@ function AboutUs() {
   }
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 to-green-50 min-h-screen p-8">
+    <div className="bg-gradient-to-br from-blue-50 to-green-50 min-h-screen p-0">
        <style>
         {`
           .leaflet-control-attribution {
@@ -77,7 +77,7 @@ function AboutUs() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-5xl font-extrabold text-blue-700 mb-4">Welcome to Surunga Medicine Center & Clinic</h1>
+        <h1 className="text-2xl sm:text-1xl font-extrabold mt-7 text-blue-700 mb-4">Surunga Medicine Center & Clinic</h1>
         <p className="text-xl text-gray-600 mt-2">Caring for the community with compassion and excellence</p>
       </motion.header>
 
@@ -113,7 +113,7 @@ function AboutUs() {
           </p>
         </motion.div>
         <motion.div
-          className="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition duration-300"
+          className="bg-white shadow-lg rounded-lg p-2 transform hover:scale-105 transition duration-300"
           {...fadeInUp}
           transition={{ delay: 0.2 }}
         >
@@ -176,7 +176,7 @@ function AboutUs() {
             <li className="flex items-center">
               <FaEnvelope className="mr-2 text-blue-600" />
               <span>
-                <strong>Email:</strong> surungamedicineclinic@gmail.com
+                <strong>Email:</strong> info@surungamedicine.com
               </span>
             </li>
             <li className="flex items-center">

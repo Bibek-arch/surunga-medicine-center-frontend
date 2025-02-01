@@ -9,23 +9,33 @@ import Blog from './components/Blog'
 import OurDoctors from './components/OurDoctors'
 import AboutUs from './components/AboutUs'
 import ContactUs from './components/ContactUs'
+import PrivacyPolicy from './components/privacypolicy'
+import ServicePage from './components/ServicePage'
+import HomeServices from "./components/HomeServices"
+import WhatsAppChat from './components/WhatsappChat'
+
 
 function App() {
   return (
     <Router>
       <Layout>
+        <WhatsAppChat/>
         <AnimatePresence mode="wait">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
+            <Route path="/" element={<HomeServices />} />
+            <Route path="/services" element={<Services />} /> 
             <Route path="/blog" element={<Blog />} />
             <Route path="/our-doctors" element={<OurDoctors />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/services/:service" element={<ServicePage />} />
           </Routes>
         </AnimatePresence>
       </Layout>
     </Router>
+    
   )
 }
 

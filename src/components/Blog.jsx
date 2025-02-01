@@ -28,9 +28,10 @@ function Blog() {
       answer: "Yes, we provide 24/7 emergency services. In case of an emergency, please call our emergency hotline or visit our emergency department immediately."
     },
     {
-      question: "Does Surunga Medicine Center accept insurance?",
-      answer: "Yes, we accept a wide range of insurance plans. Please contact our billing department or check our website for a list of accepted insurance providers."
+      question: "Do you provide home delivery for medicines?",
+      answer: "Yes, we offer home delivery services for prescribed medicines. Contact our support team for more details or to schedule a delivery."
     }
+    
   ];
 
   return (
