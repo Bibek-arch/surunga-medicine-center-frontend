@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link, useLocation } from 'react-router-dom'
 import favicon from '../assets/favicon.png'
-import { FaFacebook, FaWhatsapp, FaPhoneAlt, FaBars,FaEnvelope, FaTimes } from 'react-icons/fa'
+import { FaPhoneAlt, FaBars,FaEnvelope, FaTimes } from 'react-icons/fa'
 
 import { Facebook, Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react"
 
@@ -29,10 +29,11 @@ const Layout = ({ children }) => {
   const location = useLocation()
 
 
-
   useEffect(() => {
-    setMenuOpen(false)
+    setMenuOpen(false);
   }, [location])
+
+  
 
    return(
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 text-gray-800">
@@ -43,18 +44,18 @@ const Layout = ({ children }) => {
                   <div className="flex items-center space-x-6">
                     <a href="mailto:info@surungamedicineclinic.com" className="flex items-center space-x-2 text-sm">
                       <FaEnvelope className="text-xs" />
-                      <span>info@surungamedicineclinic.com</span>
+                      <span>surungamedicineclinic@gmail.com</span>
                     </a>
                     <div className="flex items-center space-x-2 text-sm">
                       <FaPhoneAlt className="text-xs" />
-                      <span>01-5400400</span>
+                      <span>023-553097</span>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-4">
+                  {/* <div className="flex items-center space-x-4">
                     <div className="flex items-center">
-                      <span className="text-sm text-center">Appointment Hotline Number:     9861986614</span>
+                      <span className="text-sm text-center">Appointment Hotline Number:     9804964107</span>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
         <div className="container mx-auto flex justify-between items-center p-3">
@@ -130,52 +131,6 @@ const Layout = ({ children }) => {
         </motion.div>
       </main>
 
-      {/* <footer className="bg-blue-800 text-white py-6">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div className="space-y-3">
-              <h3 className="text-2xl font-semibold">Surunga Medicine & Clinic</h3>
-              <p className="text-blue-200">Providing quality healthcare services since 2000</p>
-            </div>
-            <div className="space-y-2">
-              <h4 className="text-xl font-semibold">Quick Links</h4>
-              <ul className="space-y-1">
-                {[
-                  { href: '/privacy-policy', label: 'Privacy Policy' },
-                  { href: '/services', label: 'Terms of Service' },
-                  { href: '/contact-us', label: 'Contact Us' },
-                ].map((link) => (
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      className="text-blue-200 hover:text-white transition duration-300 ease-in-out"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="space-y-2">
-              <h4 className="text-xl font-semibold">Connect With Us</h4>
-              <div className="flex space-x-4">
-                <a href="https://www.facebook.com/surungamedicine" className="text-blue-200 hover:text-white transition duration-300 ease-in-out text-2xl">
-                  <FaFacebook /> 
-                </a>
-                <a href="https://wa.me/9779804964107" className="text-blue-200 hover:text-white transition duration-300 ease-in-out text-2xl">
-                  <FaWhatsapp />
-                </a>
-                <a href="tel:023-553097" className="text-blue-200 hover:text-white transition duration-300 ease-in-out text-2xl">
-                  <FaPhoneAlt />
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="mt-3 pt-3 border-t border-blue-800 text-center">
-            <p className="text-blue-200">&copy; {new Date().getFullYear()} Surunga Medicine Center. All rights reserved.</p>
-          </div>
-        </div>
-      </footer> */}
       <footer className="bg-blue-800 text-white py-8">
       <div className="container mx-auto px-6">
         <motion.div
@@ -204,7 +159,7 @@ const Layout = ({ children }) => {
                 href="mailto:info@surungamedicine.com"
                 className="flex items-center text-blue-200 hover:text-white transition duration-300"
               >
-                <Mail size={18} className="mr-2" /> info@surungamedicine.com
+                <Mail size={18} className="mr-2" /> surungamedicineclinic@gmail.com
               </motion.a>
               <motion.p className="flex items-center text-blue-200">
                 <MapPin size={18} className="mr-2" /> Surunga, Jhapa, Nepal

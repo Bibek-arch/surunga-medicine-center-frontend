@@ -185,10 +185,10 @@ import minor from '../assets/checkup/general.jpeg'
 import pharmacy from '../assets/checkup/serv.jpg'
 import training from '../assets/checkup/healthcons.jpg'
 import homecare from '../assets/servicesImg/homecare.jpg'
-import endoscopy from '../assets/servicesImg/endoscopy.png'
-import colposcopy from '../assets/servicesImg/colpo.jpg'
-import colnoscopy from '../assets/servicesImg/colnoscopy.webp'
-import thermo from '../assets/servicesImg/thermocal.jpg'
+import famplanning from '../assets/family_planning.jpg'
+import labservice from '../assets/checkup/m3.jpeg'
+import xray from '../assets/checkup/xray.jpeg'
+import cosmetic from '../assets/cosmetic.webp'
 const serviceDetails = {
     vaccination: {
       title: "Vaccination Services",
@@ -454,143 +454,234 @@ const serviceDetails = {
         ],
       },
     },
-    endoscopy: {
-      title: "Endoscopy Services",
-      description:
-        "Advanced endoscopic procedures performed by experienced gastroenterologists for diagnosis and treatment of digestive issues.",
-      image: endoscopy,
-      features: [
-        "Upper GI Endoscopy",
-        "Colonoscopy",
-        "ERCP (Endoscopic Retrograde Cholangiopancreatography)",
-        "Capsule Endoscopy",
-        "Endoscopic Ultrasound",
+    // endoscopy: {
+    //   title: "Endoscopy Services",
+    //   description:
+    //     "Advanced endoscopic procedures performed by experienced gastroenterologists for diagnosis and treatment of digestive issues.",
+    //   image: endoscopy,
+    //   features: [
+    //     "Upper GI Endoscopy",
+    //     "Colonoscopy",
+    //     "ERCP (Endoscopic Retrograde Cholangiopancreatography)",
+    //     "Capsule Endoscopy",
+    //     "Endoscopic Ultrasound",
+    //   ],
+    //   additionalInfo: {
+    //     procedures: [
+    //       "Diagnostic Endoscopy",
+    //       "Therapeutic Endoscopy",
+    //       "Endoscopic Mucosal Resection",
+    //       "Polypectomy",
+    //       "Biopsy Procedures",
+    //     ],
+    //     preparation: [
+    //       "Fasting for 8-12 hours before the procedure",
+    //       "Adjusting medications as advised",
+    //       "Arranging for someone to drive you home",
+    //       "Wearing loose-fitting clothing",
+    //     ],
+    //     aftercare: [
+    //       "Rest for the remainder of the day",
+    //       "Gradual return to normal diet",
+    //       "Follow-up appointment for results",
+    //       "Monitoring for any complications",
+    //     ],
+    //   },
+    // },
+    // colonoscopy: {
+    //   title: "Colonoscopy Services",
+    //   description:
+    //     "Comprehensive colonoscopy screening and diagnostic services for colon health assessment and cancer prevention.",
+    //   image: colnoscopy,
+    //   features: [
+    //     "Screening Colonoscopy",
+    //     "Diagnostic Colonoscopy",
+    //     "Therapeutic Colonoscopy",
+    //     "Virtual Colonoscopy",
+    //     "Polypectomy during Colonoscopy",
+    //   ],
+    //   additionalInfo: {
+    //     preparation: [
+    //       "Special diet 3 days before procedure",
+    //       "Clear liquid diet day before",
+    //       "Bowel preparation solution",
+    //       "Nothing to eat or drink 8 hours before",
+    //     ],
+    //     procedure: [
+    //       "Duration: 30-60 minutes",
+    //       "Sedation provided",
+    //       "Complete colon examination",
+    //       "Tissue sampling if needed",
+    //     ],
+    //     afterCare: [
+    //       "Recovery time: 1-2 hours",
+    //       "No driving for 24 hours",
+    //       "Resume normal diet gradually",
+    //       "Follow-up appointment in 1-2 weeks",
+    //     ],
+    //   },
+    // },
+    // colposcopy: {
+    //   title: "Colposcopy Services",
+    //   description:
+    //     "Specialized examination of the cervix, vagina, and vulva for detecting abnormalities and early signs of cervical cancer.",
+    //   image: colposcopy,
+    //   features: [
+    //     "Detailed cervical examination",
+    //     "Biopsy if necessary",
+    //     "HPV testing",
+    //     "Treatment of precancerous lesions",
+    //     "Follow-up care and monitoring",
+    //   ],
+    //   additionalInfo: {
+    //     procedure: [
+    //       "Duration: 10-20 minutes",
+    //       "No anesthesia required",
+    //       "Use of colposcope for magnified view",
+    //       "Application of acetic acid or iodine solution",
+    //       "Biopsy of suspicious areas if needed",
+    //     ],
+    //     preparation: [
+    //       "Schedule appointment when not menstruating",
+    //       "Avoid sexual intercourse for 24-48 hours before",
+    //       "No douching or using vaginal medications",
+    //       "Inform doctor of any medications or allergies",
+    //     ],
+    //     aftercare: [
+    //       "Mild discomfort or spotting may occur",
+    //       "Avoid tampons and sexual intercourse for a few days",
+    //       "Follow-up as recommended by the doctor",
+    //       "Prompt reporting of any unusual symptoms",
+    //     ],
+    //   },
+    // },
+    // thermocoagulation: {
+    //   title: "Thermocoagulation Services",
+    //   description:
+    //     "Advanced treatment using heat for various medical conditions, particularly in gynecology and dermatology.",
+    //   image: thermo,
+    //   features: [
+    //     "Treatment of cervical lesions",
+    //     "Management of abnormal uterine bleeding",
+    //     "Removal of skin tags and warts",
+    //     "Treatment of vascular lesions",
+    //     "Minimally invasive procedure",
+    //   ],
+    //   additionalInfo: {
+    //     applications: [
+    //       "Cervical intraepithelial neoplasia (CIN)",
+    //       "Menorrhagia treatment",
+    //       "Cosmetic dermatology",
+    //       "Vascular lesion management",
+    //       "Minor surgical procedures",
+    //     ],
+    //     procedure: [
+    //       "Local anesthesia if required",
+    //       "Application of heat to targeted areas",
+    //       "Duration varies based on treatment area",
+    //       "Minimal to no downtime",
+    //       "Can be performed as an outpatient procedure",
+    //     ],
+    //     aftercare: [
+    //       "Mild discomfort may be experienced",
+    //       "Follow wound care instructions",
+    //       "Avoid strenuous activities for a few days",
+    //       "Follow-up appointment for evaluation",
+    //       "Report any unusual symptoms promptly",
+    //     ],
+    //   },
+    // },
+    "lab-services": {
+    title: "Lab Services",
+    description: "Comprehensive laboratory services with advanced testing facilities.",
+    image: labservice, // सही path राख्नु
+    features: [
+      "Blood tests for various conditions",
+      "Hormone and metabolic tests",
+      "Pathology and microbiology diagnostics",
+      "Fast and accurate test results",
+      "Certified laboratory technicians",
+    ],
+    additionalInfo: {
+      availableTests: ["CBC", "Lipid Profile", "Thyroid Panel", "Blood Sugar", "Liver Function Test"],
+      process: [
+        "Book an appointment online or walk-in",
+        "Sample collection by professionals",
+        "Analysis by certified lab technicians",
+        "Receive results digitally or in-person",
       ],
-      additionalInfo: {
-        procedures: [
-          "Diagnostic Endoscopy",
-          "Therapeutic Endoscopy",
-          "Endoscopic Mucosal Resection",
-          "Polypectomy",
-          "Biopsy Procedures",
-        ],
-        preparation: [
-          "Fasting for 8-12 hours before the procedure",
-          "Adjusting medications as advised",
-          "Arranging for someone to drive you home",
-          "Wearing loose-fitting clothing",
-        ],
-        aftercare: [
-          "Rest for the remainder of the day",
-          "Gradual return to normal diet",
-          "Follow-up appointment for results",
-          "Monitoring for any complications",
-        ],
-      },
+      facilities: ["Modern diagnostic machines", "Sterile environment", "Expert pathologists"],
     },
-    colonoscopy: {
-      title: "Colonoscopy Services",
-      description:
-        "Comprehensive colonoscopy screening and diagnostic services for colon health assessment and cancer prevention.",
-      image: colnoscopy,
-      features: [
-        "Screening Colonoscopy",
-        "Diagnostic Colonoscopy",
-        "Therapeutic Colonoscopy",
-        "Virtual Colonoscopy",
-        "Polypectomy during Colonoscopy",
+  },
+
+  "lab-testing": {
+    title: "Lab Testing",
+    description: "Wide range of diagnostic tests for accurate health assessment.",
+    image: xray,
+    features: [
+      "Comprehensive health screenings",
+      "Disease-specific diagnostic tests",
+      "Urine and stool analysis",
+      "PCR and genetic testing",
+      "Biopsy and histopathology",
+    ],
+    additionalInfo: {
+      commonTests: ["COVID-19 PCR", "Hematology tests", "Allergy testing", "Autoimmune disease testing"],
+      procedure: [
+        "Consultation with a healthcare provider",
+        "Test selection and sample collection",
+        "Laboratory analysis and report generation",
+        "Doctor’s review and result discussion",
       ],
-      additionalInfo: {
-        preparation: [
-          "Special diet 3 days before procedure",
-          "Clear liquid diet day before",
-          "Bowel preparation solution",
-          "Nothing to eat or drink 8 hours before",
-        ],
-        procedure: [
-          "Duration: 30-60 minutes",
-          "Sedation provided",
-          "Complete colon examination",
-          "Tissue sampling if needed",
-        ],
-        afterCare: [
-          "Recovery time: 1-2 hours",
-          "No driving for 24 hours",
-          "Resume normal diet gradually",
-          "Follow-up appointment in 1-2 weeks",
-        ],
-      },
+      reliability: ["FDA-approved test kits", "Automated analyzers", "Quality assurance processes"],
     },
-    colposcopy: {
-      title: "Colposcopy Services",
-      description:
-        "Specialized examination of the cervix, vagina, and vulva for detecting abnormalities and early signs of cervical cancer.",
-      image: colposcopy,
-      features: [
-        "Detailed cervical examination",
-        "Biopsy if necessary",
-        "HPV testing",
-        "Treatment of precancerous lesions",
-        "Follow-up care and monitoring",
+  },
+
+  "family-planning": {
+    title: "Family Planning Services",
+    description: "Professional counseling and support for reproductive health and family planning.",
+    image: famplanning,
+    features: [
+      "Contraceptive counseling and prescriptions",
+      "Prenatal and postnatal care",
+      "Fertility assessments",
+      "Sterilization procedures",
+      "Sexual health education",
+    ],
+    additionalInfo: {
+      availableMethods: ["Birth control pills", "IUDs", "Condoms", "Implants", "Surgical procedures"],
+      counselingProcess: [
+        "Initial consultation with a specialist",
+        "Personalized contraceptive recommendations",
+        "Guidance on reproductive health and safety",
+        "Follow-up and monitoring",
       ],
-      additionalInfo: {
-        procedure: [
-          "Duration: 10-20 minutes",
-          "No anesthesia required",
-          "Use of colposcope for magnified view",
-          "Application of acetic acid or iodine solution",
-          "Biopsy of suspicious areas if needed",
-        ],
-        preparation: [
-          "Schedule appointment when not menstruating",
-          "Avoid sexual intercourse for 24-48 hours before",
-          "No douching or using vaginal medications",
-          "Inform doctor of any medications or allergies",
-        ],
-        aftercare: [
-          "Mild discomfort or spotting may occur",
-          "Avoid tampons and sexual intercourse for a few days",
-          "Follow-up as recommended by the doctor",
-          "Prompt reporting of any unusual symptoms",
-        ],
-      },
+      benefits: ["Safe and effective", "Confidential services", "Experienced gynecologists"],
     },
-    thermocoagulation: {
-      title: "Thermocoagulation Services",
-      description:
-        "Advanced treatment using heat for various medical conditions, particularly in gynecology and dermatology.",
-      image: thermo,
-      features: [
-        "Treatment of cervical lesions",
-        "Management of abnormal uterine bleeding",
-        "Removal of skin tags and warts",
-        "Treatment of vascular lesions",
-        "Minimally invasive procedure",
+  },
+
+  "cosmetic-products": {
+    title: "Cosmetic Products",
+    description: "High-quality beauty and personal care products for clinics and individuals.",
+    image: cosmetic,
+    features: [
+      "Dermatologist-approved skincare",
+      "Hair and scalp treatments",
+      "Anti-aging solutions",
+      "Natural and organic products",
+      "Medical-grade cosmetics",
+    ],
+    additionalInfo: {
+      productCategories: ["Moisturizers", "Sunscreens", "Acne treatments", "Hair growth serums", "Anti-wrinkle creams"],
+      skinCareRoutine: [
+        "Consultation with a dermatologist",
+        "Selection of suitable skincare products",
+        "Usage instructions and follow-ups",
+        "Long-term skincare monitoring",
       ],
-      additionalInfo: {
-        applications: [
-          "Cervical intraepithelial neoplasia (CIN)",
-          "Menorrhagia treatment",
-          "Cosmetic dermatology",
-          "Vascular lesion management",
-          "Minor surgical procedures",
-        ],
-        procedure: [
-          "Local anesthesia if required",
-          "Application of heat to targeted areas",
-          "Duration varies based on treatment area",
-          "Minimal to no downtime",
-          "Can be performed as an outpatient procedure",
-        ],
-        aftercare: [
-          "Mild discomfort may be experienced",
-          "Follow wound care instructions",
-          "Avoid strenuous activities for a few days",
-          "Follow-up appointment for evaluation",
-          "Report any unusual symptoms promptly",
-        ],
-      },
+      safetyStandards: ["Clinically tested", "Hypoallergenic", "Paraben-free", "Dermatologist-recommended"],
     },
+  },
   }
   
 
@@ -604,14 +695,14 @@ export default function ServicePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-1">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="max-w-6xl mx-auto"
       >
-        <h1 className="text-4xl font-bold text-blue-900 mb-6">{serviceInfo.title}</h1>
+        <h1 className="text-2xl font-bold text-blue-900 mb-6">{serviceInfo.title}</h1>
         <div className="grid gap-8">
           <motion.div
             initial={{ opacity: 0 }}

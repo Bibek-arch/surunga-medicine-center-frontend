@@ -56,7 +56,7 @@ function Blog() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <img src={blog.image || "/placeholder.svg"} alt={blog.title} className="w-full h-62 object-cover" />
+            <img src={blog.image || "/placeholder.svg"} priority="true" alt={blog.title} className="w-full h-62 object-cover" />
             <div className="p-6">
               <h3 className="text-xl font-bold text-blue-700 mb-2">{blog.title}</h3>
               <div className="flex items-center text-gray-500 mb-4">

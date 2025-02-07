@@ -77,8 +77,8 @@ function AboutUs() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-2xl sm:text-1xl font-extrabold mt-7 text-blue-700 mb-4">Surunga Medicine Center & Clinic</h1>
-        <p className="text-xl text-gray-600 mt-2">Caring for the community with compassion and excellence</p>
+        
+        <p className="text-xl text-gray-600 mt-8">Caring for the community with compassion and excellence</p>
       </motion.header>
 
       {/* About Us Section */}
@@ -129,10 +129,11 @@ function AboutUs() {
       </div>
 
       {/* Geolocation and Contact Details Section */}
-      <div className="grid md:grid-cols-2 gap-8 sm:grind-cols-1 items-center mb-12">
-        {/* Map */}
-        <motion.div className="h-full w-full rounded-lg overflow-hidden shadow-lg relative" {...fadeInUp}>
-          <MapContainer center={[clinicLocation.lat, clinicLocation.lng]}  zoom={16} className="h-full w-full">
+
+<div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
+        {/* Map - Now visible on small screens too */}
+        <motion.div className="h-64 sm:h-96 w-full rounded-lg overflow-hidden shadow-lg relative" {...fadeInUp}>
+          <MapContainer center={[clinicLocation.lat, clinicLocation.lng]} zoom={16} className="h-full w-full">
             
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
             <FlyToLocation lat={clinicLocation.lat} lng={clinicLocation.lng} />
@@ -158,60 +159,58 @@ function AboutUs() {
         {/* Contact Details */}
         <motion.div className="bg-white shadow-lg rounded-lg p-6" {...fadeInUp} transition={{ delay: 0.2 }}>
           <h3 className="text-2xl font-bold text-blue-700 mb-4 flex items-center">
-            <FaPhoneAlt className="mr-2" /> Contact Us 
+            Contact Us 
           </h3>
           <ul className="text-gray-600 space-y-4 text-lg">
             <li className="flex items-center">
               <FaMapMarkerAlt className="mr-2 text-blue-600" />
               <span>
-                <strong>Address:</strong> Surunga, Jhapa, Nepal
+                Surunga, Jhapa, Nepal
               </span>
             </li>
             <li className="flex items-center">
               <FaPhoneAlt className="mr-2 text-blue-600" />
               <span>
-                <strong>Phone:</strong> 023-553097 | 9804964107
+                023-553097 | 9804964107
               </span>
             </li>
             <li className="flex items-center">
               <FaEnvelope className="mr-2 text-blue-600" />
               <span>
-                <strong>Email:</strong> info@surungamedicine.com
+                 surungamedicineclinic@gmail.com
               </span>
             </li>
             <li className="flex items-center">
               <FaClock className="mr-2 text-blue-600" />
               <span>
-                <strong>Hours:</strong> Always Open  6 AM - 8 PM
+                 Always Open 6 AM - 8 PM
               </span>
             </li>
           </ul>
           
-            <motion.a
-      href="#"
-      onClick={(e) => {
-        e.preventDefault(); // Prevent navigation if location is not set yet
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            const origin = `${position.coords.latitude},${position.coords.longitude}`;
-            const destination = "26.641295672353664,87.89028896698203";
-            const mapUrl = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}`;
-            window.open(mapUrl, "_blank");
-          },
-          (error) => {
-            alert("Could not determine your location. Please enable location services.");
-          }
-        );
-      }}
-      rel="noopener noreferrer"
-      className="inline-block mt-6 px-6 py-3 bg-blue-700 text-white rounded-lg shadow-md hover:bg-blue-800 transition duration-300"
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-    >
-      Get Directions
-    </motion.a>
-
-
+          <motion.a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault(); // Prevent navigation if location is not set yet
+              navigator.geolocation.getCurrentPosition(
+                (position) => {
+                  const origin = `${position.coords.latitude},${position.coords.longitude}`;
+                  const destination = "26.641295672353664,87.89028896698203";
+                  const mapUrl = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}`;
+                  window.open(mapUrl, "_blank");
+                },
+                (error) => {
+                  alert("Could not determine your location. Please enable location services.");
+                }
+              );
+            }}
+            rel="noopener noreferrer"
+            className="inline-block mt-6 px-6 py-3 bg-blue-700 text-white rounded-lg shadow-md hover:bg-blue-800 transition duration-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Get Directions
+          </motion.a>
         </motion.div>
       </div>
 

@@ -52,7 +52,7 @@ function ContactUsForm() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="min-h-screen bg-gradient-to-br from-teal-50 to-cyan-100 py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center"
+      className="min-h-screen bg-gradient-to-br from-teal-50 to-cyan-100 py-12 px-1 sm:px-6 lg:px-8 flex flex-col items-center justify-center"
     >
       <motion.div
         initial={{ y: -50, opacity: 0 }}

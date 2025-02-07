@@ -1045,7 +1045,7 @@ const Home = () => {
         className="bg-white p-6  rounded-xl shadow-md hover:shadow-xl transition-all duration-300"
       >
         {icon}
-        <img src={image || "/placeholder.svg"} alt={title} className="w-full h-48 object-cover rounded-md mb-4" />
+        <img src={image || "/placeholder.svg"} alt={title} priority="true" className="w-full h-48 object-cover rounded-md mb-4" />
         <h3 className="text-xl font-semibold text-gray-800 mb-2">{title}</h3>
         <p className="text-gray-600">{description}</p>
       </motion.div>
@@ -1092,13 +1092,14 @@ const Home = () => {
   <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-0"> 
  
      <FeatureCard 
-      clas
       icon={<FaMapMarkerAlt className="text-4xl text-indigo-500 mb-2" />}
+      priority="true"
       title="Our Location"
       description="📍 Surunga, Jhapa, Nepal"
     />
     <FeatureCard
       icon={<FaPhoneAlt className="text-4xl text-indigo-500 mb-2" />}
+      priority="true"
       title="Contact Us"
       description={
         <>
@@ -1109,6 +1110,7 @@ const Home = () => {
     />
     <FeatureCard
       icon={<FaClock className="text-4xl text-indigo-500 mb-2" />}
+      priority="true"
       title="Working Hours"
       description={
         <>
@@ -1122,7 +1124,7 @@ const Home = () => {
 
           </div>
           <div className="relative">
-            <img src={GroupImage || "/placeholder.svg"} alt="Patient Care" className="w-full h-full object-cover" />
+            <img src={GroupImage || "/placeholder.svg"} priority="true" alt="Patient Care"  className="w-full h-full object-cover" />
 
           </div>
         </div>
@@ -1155,6 +1157,7 @@ const Home = () => {
               >
                 <img
                   src={banner.image || "/placeholder.svg"}
+                  priority="true"
                   alt={banner.caption}
                   className="w-full h-48 object-cover rounded mb-2"
                 />
@@ -1191,6 +1194,7 @@ const Home = () => {
               >
                 <img
                   src={banner.image || "/placeholder.svg"}
+                  priority="true"
                   alt={banner.caption}
                   className="w-full h-64 object-cover rounded mb-2"
                 />
@@ -1242,6 +1246,7 @@ const Home = () => {
             <div key={index} className="w-full h-full lg:h-[500px] relative overflow-hidden  object-cover rounded-lg shadow-lg">
               <img
                 src={img || "/placeholder.svg"}
+                priority='true'
                 alt={`Slider ${index + 1}`}
                 className="w-full h-full object-cover rounded-lg shadow-lg"
                 
@@ -1325,6 +1330,7 @@ const Home = () => {
                 <img
                   src={item.image || "/placeholder.svg"}
                   alt={item.title}
+                  priority ='true'
                   className="w-full h-48 object-cover rounded-md"
                 />
                 <h3 className="text-xl font-semibold text-blue-600 mt-4">{item.title}</h3>
@@ -1345,28 +1351,32 @@ const Home = () => {
           >
             HealthCare Categories
           </motion.h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 p-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 p-2">
             <ServiceCard
               icon={<FaStethoscope className="text-4xl text-blue-500 mb-4" />}
               image={general}
+              priority='true'
               title="Primary Care"
               description="Routine checkups, wellness exams, and preventive healthcare to keep you at your best."
             />
             <ServiceCard
               icon={<FaHeartbeat className="text-4xl text-blue-500 mb-4" />}
               image={special}
+              priority='true'
               title="Specialized Care"
               description="Expert treatment for chronic conditions, women's health, pediatrics, and more."
             />
             <ServiceCard
               icon={<FaAmbulance className="text-4xl text-blue-500 mb-4" />}
               image={urgent}
+              priority='true'
               title="Urgent Care"
               description="Quick and reliable treatment for non-life-threatening emergencies."
             />
             <ServiceCard
               icon={<FaFlask className="text-4xl text-blue-500 mb-4" />}
               image={xray}
+              priority='true'
               title="Diagnostics"
               description="On-site lab testing, imaging, and diagnostics for accurate and timely results."
             />
@@ -1476,6 +1486,554 @@ const Home = () => {
 }
 
 export default Home
+
+
+
+
+// import React, { useState, useEffect } from "react";
+// import { motion, AnimatePresence } from "framer-motion";
+// import { Link } from "react-router-dom";
+// import axios from "axios";
+// import { FaUserMd, FaHospital, FaPhoneAlt, FaStethoscope, FaClock, FaMapMarkerAlt, FaHeartbeat, FaAmbulance, FaFlask, FaEnvelope, FaPhone } from "react-icons/fa";
+// import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+// // import { Parallax } from "react-parallax";
+
+// // Import images
+// import teamImage from "../assets/team.png";
+// import radiograph from '../assets/checkup/radiograph.jpeg';
+// import micros1 from '../assets/checkup/micros1.jpeg';
+// import general from '../assets/checkup/general.jpeg';
+// import special from '../assets/checkup/ecg.jpeg';
+// import urgent from '../assets/checkup/couns.jpg';
+// import xray from '../assets/checkup/xray.jpeg';
+// import GroupImage from "../assets/GroupImage.jpg";
+// import c1 from '../assets/c1.jpg';
+// import c3 from '../assets/c3.jpg';
+// import c7 from '../assets/c7.jpg';
+// import loc from '../assets/checkup/loc.jpg';
+// import serv from '../assets/checkup/serv.jpg';
+// import patientImage from '../assets/patientcare.webp';
+
+// const images = [c1, c3, c7, loc, serv];
+
+// const Home = () => {
+//   const [banners, setBanners] = useState([]);
+//   const [showPopup, setShowPopup] = useState(true);
+
+//   useEffect(() => {
+//     axios
+//       .get(`${process.env.REACT_APP_API_URL}/banners/`)
+//       .then((response) => setBanners(response.data))
+//       .catch((error) => console.error("Error fetching banners:", error));
+//   }, []);
+
+//   const handleClosePopup = () => {
+//     setShowPopup(false);
+//   };
+
+//   const fadeInUp = {
+//     hidden: { opacity: 0, y: 20 },
+//     visible: { opacity: 1, y: 0 },
+//   };
+
+//   const FeatureCard = ({ icon, title, description }) => {
+//     return (
+//       <motion.div
+//         whileHover={{ scale: 1.05 }}
+//         whileTap={{ scale: 0.95 }}
+//         className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300"
+//       >
+//         <div className="text-4xl text-blue-600 mb-4">{icon}</div>
+//         <h3 className="text-xl font-semibold text-gray-800 mb-2">{title}</h3>
+//         <p className="text-gray-600">{description}</p>
+//       </motion.div>
+//     );
+//   };
+
+//   const ServiceCard = ({ icon, image, title, description }) => {
+//     return (
+//       <motion.div
+//         whileHover={{ scale: 1.05 }}
+//         whileTap={{ scale: 0.95 }}
+//         className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300"
+//       >
+//         <div className="text-4xl text-blue-600 mb-4">{icon}</div>
+//         <img src={image || "/placeholder.svg"} alt={title} className="w-full h-48 object-cover rounded-md mb-4" />
+//         <h3 className="text-xl font-semibold text-gray-800 mb-2">{title}</h3>
+//         <p className="text-gray-600">{description}</p>
+//       </motion.div>
+//     );
+//   };
+
+//   const DoctorSlider = () => {
+//     const doctors = [
+//       { name: "Dr. John Doe", specialty: "Cardiologist", image: "https://placekitten.com/300/300" },
+//       { name: "Dr. Jane Smith", specialty: "Pediatrician", image: "https://placekitten.com/301/301" },
+//       { name: "Dr. Mike Johnson", specialty: "Neurologist", image: "https://placekitten.com/302/302" },
+//     ];
+
+//     const settings = {
+//       dots: true,
+//       infinite: true,
+//       speed: 500,
+//       slidesToShow: 3,
+//       slidesToScroll: 1,
+//       responsive: [
+//         {
+//           breakpoint: 1024,
+//           settings: {
+//             slidesToShow: 2,
+//             slidesToScroll: 1,
+//           }
+//         },
+//         {
+//           breakpoint: 600,
+//           settings: {
+//             slidesToShow: 1,
+//             slidesToScroll: 1
+//           }
+//         }
+//       ]
+//     };
+
+//     return (
+//       <Slider {...settings}>
+//         {doctors.map((doctor, index) => (
+//           <div key={index} className="px-2">
+//             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+//               <img src={doctor.image || "/placeholder.svg"} alt={doctor.name} className="w-full h-64 object-cover" />
+//               <div className="p-4">
+//                 <h3 className="text-xl font-semibold text-gray-800">{doctor.name}</h3>
+//                 <p className="text-gray-600">{doctor.specialty}</p>
+//               </div>
+//             </div>
+//           </div>
+//         ))}
+//       </Slider>
+//     );
+//   };
+
+//   const HomeServices = () => {
+//     const services = [
+//       { title: "General Checkup", description: "Comprehensive health assessment", icon: <FaStethoscope /> },
+//       { title: "Specialized Care", description: "Expert treatment for specific conditions", icon: <FaUserMd /> },
+//       { title: "Emergency Services", description: "24/7 urgent medical care", icon: <FaAmbulance /> },
+//       { title: "Lab Tests", description: "Advanced diagnostic services", icon: <FaFlask /> },
+//     ];
+
+//     return (
+//       <section className="py-16 bg-gray-50">
+//         <div className="container mx-auto px-4 sm:px-6">
+//           <motion.h2
+//             initial="hidden"
+//             animate="visible"
+//             variants={fadeInUp}
+//             className="text-4xl font-bold text-center text-blue-800 mb-12"
+//           >
+//             Our Services
+//           </motion.h2>
+//           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+//             {services.map((service, index) => (
+//               <ServiceCard
+//                 key={index}
+//                 icon={service.icon}
+//                 title={service.title}
+//                 description={service.description}
+//               />
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+//     );
+//   };
+
+//   const HealthcareHero = () => {
+//     return (
+//       <section bgImage={patientImage} strength={500}>
+//         <section className="py-20 text-white">
+//           <div className="container mx-auto px-4 sm:px-6">
+//             <div className="max-w-3xl mx-auto text-center">
+//               <motion.h2
+//                 initial={{ opacity: 0, y: 20 }}
+//                 animate={{ opacity: 1, y: 0 }}
+//                 transition={{ duration: 0.5 }}
+//                 className="text-4xl font-bold mb-6"
+//               >
+//                 Patient-Centered Experience
+//               </motion.h2>
+//               <motion.p
+//                 initial={{ opacity: 0, y: 20 }}
+//                 animate={{ opacity: 1, y: 0 }}
+//                 transition={{ duration: 0.5, delay: 0.2 }}
+//                 className="text-xl mb-8"
+//               >
+//                 We believe in treating patients like family. Our commitment to personalized care ensures that every patient receives the attention and respect they deserve.
+//               </motion.p>
+//               <motion.a
+//                 href="/testimonials"
+//                 initial={{ opacity: 0, y: 20 }}
+//                 animate={{ opacity: 1, y: 0 }}
+//                 transition={{ duration: 0.5, delay: 0.4 }}
+//                 className="inline-block bg-white text-blue-600 font-semibold py-3 px-8 rounded-full hover:bg-blue-100 transition duration-300"
+//               >
+//                 Read Patient Stories
+//               </motion.a>
+//             </div>
+//           </div>
+//         </section>
+//       </section>
+//     );
+//   };
+
+//   const ContactUs = () => {
+//     return (
+//       <section className="py-16 bg-blue-50">
+//         <div className="container mx-auto px-4 sm:px-6">
+//           <motion.h2
+//             initial={{ opacity: 0, y: 20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.5 }}
+//             className="text-4xl font-bold text-center text-blue-800 mb-12"
+//           >
+//             Contact Us
+//           </motion.h2>
+//           <div className="grid md:grid-cols-2 gap-8">
+//             <motion.div
+//               initial={{ opacity: 0, x: -20 }}
+//               animate={{ opacity: 1, x: 0 }}
+//               transition={{ duration: 0.5, delay: 0.2 }}
+//             >
+//               <h3 className="text-2xl font-semibold text-blue-600 mb-4">Get in Touch</h3>
+//               <p className="text-gray-600 mb-6">
+//                 We're here to help. Reach out to us for any inquiries or to schedule an appointment.
+//               </p>
+//               <ul className="space-y-4">
+//                 <li className="flex items-center">
+//                   <FaMapMarkerAlt className="text-blue-500 mr-3" />
+//                   <span>Kanakai-03, Surunga, Jhapa</span>
+//                 </li>
+//                 <li className="flex items-center">
+//                   <FaPhone className="text-blue-500 mr-3" />
+//                   <span>023-553097 | 9804964107</span>
+//                 </li>
+//                 <li className="flex items-center">
+//                   <FaEnvelope className="text-blue-500 mr-3" />
+//                   <span>surungamedicineclinic@gmail.com</span>
+//                 </li>
+//               </ul>
+//             </motion.div>
+//             <motion.div
+//               initial={{ opacity: 0, x: 20 }}
+//               animate={{ opacity: 1, x: 0 }}
+//               transition={{ duration: 0.5, delay: 0.4 }}
+//               className="bg-white p-8 rounded-lg shadow-lg"
+//             >
+//               <h3 className="text-2xl font-semibold text-blue-600 mb-4">Book an Appointment</h3>
+//               <p className="text-gray-600 mb-6">
+//                 Ready to prioritize your health? Schedule an appointment with our experienced medical professionals.
+//               </p>
+//               <Link to="/contact-us">
+//                 <motion.button
+//                   whileHover={{ scale: 1.05 }}
+//                   whileTap={{ scale: 0.95 }}
+//                   className="w-full bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium shadow-lg hover:bg-blue-700 transition-all duration-300"
+//                 >
+//                   Book Appointment
+//                 </motion.button>
+//               </Link>
+//             </motion.div>
+//           </div>
+//         </div>
+//       </section>
+//     );
+//   };
+
+//   return (
+//     <div className="font-sans bg-gray-50">
+//       {/* Hero Section */}
+//       <section bgImage={GroupImage} strength={500}>
+//         <div className="min-h-screen flex items-center justify-center p-4">
+//           <div className="bg-white bg-opacity-90 rounded-2xl shadow-2xl overflow-hidden max-w-6xl w-full">
+//             <div className="grid md:grid-cols-2 gap-8 p-8">
+//               <div className="space-y-6">
+//                 <motion.div
+//                   initial={{ scale: 0, rotate: -180 }}
+//                   animate={{ scale: 1, rotate: 0 }}
+//                   transition={{ duration: 1, type: "spring", stiffness: 260, damping: 20 }}
+//                   className="flex justify-center mb-4"
+//                 >
+//                   <div className="bg-indigo-100 p-3 rounded-full">
+//                     <FaHospital className="text-5xl text-indigo-600" />
+//                   </div>
+//                 </motion.div>
+//                 <motion.div
+//                   initial={{ opacity: 0, y: 50 }}
+//                   animate={{ opacity: 1, y: 0 }}
+//                   transition={{ duration: 1 }}
+//                   className="text-center"
+//                 >
+//                   <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Surunga Medicine Center & Clinic</h1>
+//                   <p className="text-xl lg:text-2xl text-gray-600 mb-8">Your Health, Our Priority</p>
+//                   <Link
+//                     to="/contact-us"
+//                     className="inline-block px-8 py-4 text-lg font-medium bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition duration-300 ease-in-out transform hover:scale-105 shadow-md"
+//                   >
+//                     Book an Appointment
+//                   </Link>
+//                 </motion.div>
+//                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+//                   <FeatureCard 
+//                     icon={<FaMapMarkerAlt />}
+//                     title="Our Location"
+//                     description="📍 Surunga, Jhapa, Nepal"
+//                   />
+//                   <FeatureCard
+//                     icon={<FaPhoneAlt />}
+//                     title="Contact Us"
+//                     description="📞 9804964107 | 023-553097"
+//                   />
+//                   <FeatureCard
+//                     icon={<FaClock />}
+//                     title="Working Hours"
+//                     description="🕒 Always Open: 6:00 AM - 8:00 PM"
+//                   />
+//                 </div>
+//               </div>
+//               <div className="relative hidden md:block">
+//                 <img src={GroupImage || "/placeholder.svg"} alt="Patient Care" className="w-full h-full object-cover rounded-lg shadow-lg" />
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* About Us Section */}
+//       <section className="py-16 bg-gray-50">
+//         <div className="container mx-auto px-4 sm:px-6 flex flex-col lg:flex-row items-center gap-12">
+//           <div className="lg:w-1/2">
+//             <motion.h2
+//               initial="hidden"
+//               animate="visible"
+//               variants={fadeInUp}
+//               className="text-4xl font-bold text-blue-800 mb-6"
+//             >
+//               Who We Are
+//             </motion.h2>
+//             <motion.p
+//               initial="hidden"
+//               animate="visible"
+//               variants={fadeInUp}
+//               transition={{ delay: 0.2 }}
+//               className="text-gray-600 leading-relaxed mb-6"
+//             >
+//               We are Surunga's Leading Preventative Clinic committed to providing the highest quality patient care. 
+//               We treat patients of all ages emphasizing preventive medicine and wellness. Our state-of-the-art facility engages skillful medical professionals who use the latest equipment to provide quality patient care in the clinic or in the comfort of your home.
+//             </motion.p>
+//             <motion.p
+//               initial="hidden"
+//               animate="visible"
+//               variants={fadeInUp}
+//               transition={{ delay: 0.4 }}
+//               className="text-gray-600 leading-relaxed mb-8"
+//             >
+//               We believe attaining top performance happens only through proper care, exercise, nutrition, and education. 
+//               We will provide quality care to our patients to prevent the onset and progression of diseases.
+//             </motion.p>
+//             <motion.div
+//               initial="hidden"
+//               animate="visible"
+//               variants={fadeInUp}
+//               transition={{ delay: 0.6 }}
+//             >
+//               <Link
+//                 to="/about"
+//                 className="inline-block bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition duration-300 transform hover:scale-105 shadow-md"
+//               >
+//                 Learn More About Us
+//               </Link>
+//             </motion.div>
+//           </div>
+//           <div className="lg:w-1/2 w-full">
+//             <Slider
+//               dots={true}
+//               infinite={true}
+//               speed={500}
+//               slidesToShow={1}
+//               slidesToScroll={1}
+//               autoplay={true}
+//               autoplaySpeed={3000}
+//               fade={true}
+//               arrows={true}
+//               className="rounded-lg shadow-lg overflow-hidden"
+//             >
+//               {images.map((img, index) => (
+//                 <div key={index} className="w-full h-[400px] relative overflow-hidden">
+//                   <img
+//                     src={img || "/placeholder.svg"}
+//                     alt={`Slider ${index + 1}`}
+//                     className="w-full h-full object-cover"
+//                   />
+//                 </div>
+//               ))}
+//             </Slider>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Why Choose Us Section */}
+//       <section className="py-16 bg-blue-50">
+//         <div className="container mx-auto px-4 sm:px-6">
+//           <motion.h2
+//             initial="hidden"
+//             animate="visible"
+//             variants={fadeInUp}
+//             className="text-4xl font-bold text-center text-blue-800 mb-12"
+//           >
+//             Why Choose Us?
+//           </motion.h2>
+//           <div className="grid md:grid-cols-3 gap-8">
+//             {[
+//               { image: teamImage, title: "Experienced Team", description: "Our skilled and compassionate healthcare professionals are here to meet your unique needs." },
+//               { image: radiograph, title: "Comprehensive Services", description: "From preventive care to advanced medical treatments, we've got you covered." },
+//               { image: micros1, title: "State-of-the-Art Facilities", description: "We combine modern technology with a patient-first approach to make your visits comfortable and effective." },
+//             ].map((item, index) => (
+//               <motion.div
+//                 key={index}
+//                 initial="hidden"
+//                 animate="visible"
+//                 variants={fadeInUp}
+//                 transition={{ duration: 0.5, delay: 0.2 * index }}
+//                 className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+//               >
+//                 <img
+//                   src={item.image || "/placeholder.svg"}
+//                   alt={item.title}
+//                   className="w-full h-48 object-cover"
+//                 />
+//                 <div className="p-6">
+//                   <h3 className="text-xl font-semibold text-blue-600 mb-2">{item.title}</h3>
+//                   <p className="text-gray-600">{item.description}</p>
+//                 </div>
+//               </motion.div>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Our Services Section */}
+//       <HomeServices />
+
+//       {/* Healthcare Categories Section */}
+//       <section className="py-16 bg-gray-50">
+//         <div className="container mx-auto px-4 sm:px-6">
+//           <motion.h2
+//             initial="hidden"
+//             animate="visible"
+//             variants={fadeInUp}
+//             className="text-4xl font-bold text-center text-blue-800 mb-12"
+//           >
+//             Healthcare Categories
+//           </motion.h2>
+//           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+//             <ServiceCard
+//               icon={<FaStethoscope />}
+//               image={general}
+//               title="Primary Care"
+//               description="Routine checkups, wellness exams, and preventive healthcare to keep you at your best."
+//             />
+//             <ServiceCard
+//               icon={<FaHeartbeat />}
+//               image={special}
+//               title="Specialized Care"
+//               description="Expert treatment for chronic conditions, women's health, pediatrics, and more."
+//             />
+//             <ServiceCard
+//               icon={<FaAmbulance />}
+//               image={urgent}
+//               title="Urgent Care"
+//               description="Quick and reliable treatment for non-life-threatening emergencies."
+//             />
+//             <ServiceCard
+//               icon={<FaFlask />}
+//               image={xray}
+//               title="Diagnostics"
+//               description="On-site lab testing, imaging, and diagnostics for accurate and timely results."
+//             />
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Meet Our Doctors Section */}
+//       <section className="py-16 bg-white">
+//         <div className="container mx-auto px-4 sm:px-6">
+//           <motion.h2
+//             initial="hidden"
+//             animate="visible"
+//             variants={fadeInUp}
+//             className="text-4xl font-bold text-center text-blue-800 mb-12"
+//           >
+//             Meet Our Exceptional Doctors
+//           </motion.h2>
+//           <DoctorSlider />
+//         </div>
+//       </section>
+
+//       {/* Patient-Centered Experience Section */}
+//       <HealthcareHero />
+
+//       {/* Contact Section */}
+//       <ContactUs />
+
+//       {/* Banner Popup */}
+//       <AnimatePresence>
+//         {showPopup && banners.length > 0 && (
+//           <motion.div
+//             initial={{ opacity: 0 }}
+//             animate={{ opacity: 1 }}
+//             exit={{ opacity: 0 }}
+//             className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+//           >
+//             <motion.div
+//               initial={{ scale: 0.8 }}
+//               animate={{ scale: 1 }}
+//               exit={{ scale: 0.8 }}
+//               className="bg-white rounded-lg p-6 max-w-md shadow-lg relative"
+//             >
+//               <button
+//                 className="absolute top-2 right-2 bg-red-500 text-white rounded-full px-3 py-1 hover:bg-red-600 transition-colors duration-300"
+//                 onClick={handleClosePopup}
+//               >
+//                 X
+//               </button>
+//               {banners.map((banner, index) => (
+//                 <motion.div
+//                   key={index}
+//                   initial="hidden"
+//                   animate="visible"
+//                   variants={fadeInUp}
+//                   transition={{ duration: 0.5, delay: index * 0.2 }}
+//                   className="mb-4"
+//                 >
+//                   <img
+//                     src={banner.image || "/placeholder.svg"}
+//                     alt={banner.caption}
+//                     className="w-full h-48 object-cover rounded mb-2"
+//                   />
+//                   <h2 className="text-lg font-semibold text-blue-600 mb-2 text-center">{banner.caption}</h2>
+//                 </motion.div>
+//               ))}
+//             </motion.div>
+//           </motion.div>
+//         )}
+//       </AnimatePresence>
+//     </div>
+//   );
+// };
+
+// export default Home;
+
 
 // import React, { useState, useEffect } from "react"
 // import { motion, AnimatePresence } from "framer-motion"

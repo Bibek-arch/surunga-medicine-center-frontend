@@ -970,7 +970,7 @@ function OurDoctors() {
             className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
           >
             <div className="relative h-[280px]">
-              <img src={doctor.image || "/placeholder.svg"} alt={doctor.name} className="w-full h-full object-cover" />
+              <img src={doctor.image || "/placeholder.svg"} alt={doctor.name} priority="true" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-900/40 to-transparent">
                 <div className="absolute bottom-4 left-4 right-4 text-white">
                   <h3 className="text-2xl font-bold mb-1">{doctor.name}</h3>
@@ -1070,11 +1070,13 @@ function OurDoctors() {
                       </li>
                     ))}
                 </ul>
+               
+                
               </div>
               <div>
                 <h4 className="text-lg font-semibold text-blue-900 mb-2 flex items-center gap-2">
                   <FaGraduationCap className="text-blue-600" />
-                  Education
+                  Professional Experiences
                 </h4>
                 <ul className="space-y-1">
                   {selectedDoctor.education &&
@@ -1096,7 +1098,7 @@ function OurDoctors() {
                   className="w-full bg-green-600 text-white py-2 px-4 rounded-lg font-medium flex items-center justify-center gap-2"
                 >
                   <FaCalendarAlt />
-                  Book Your Seat with Dr. {selectedDoctor.name.split(" ")[0]}
+                  Book with Dr. {selectedDoctor.name.split(" ")[0]}
                 </motion.button>
               </Link>
               <motion.button
