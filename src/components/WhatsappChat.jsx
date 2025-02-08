@@ -53,7 +53,7 @@ const WhatsAppChat = () => {
             }}
             onClick={() => {
               window.open(
-                "https://wa.me/YOUR_WHATSAPP_NUMBER?text=We%20will%20get%20back%20to%20you%20soon",
+                "https://wa.me/9779804964107?text=We%20will%20get%20back%20to%20you%20soon",
                 "_blank"
               );
             }}

@@ -957,6 +957,8 @@ import loc from '../assets/checkup/loc.jpg'
 import serv from '../assets/checkup/serv.jpg'
 import HealthcareHero from "./happypatients.jsx"
 import ContactUs from "./Homecontact.jsx"
+import ImageSlider from "./Imagesslidee.jsx"
+import Testimonials from "./testimonials.jsx"
 const images = [
   c1, // Placeholder image
   c3,
@@ -1023,7 +1025,7 @@ const Home = () => {
     visible: { opacity: 1, y: 0 },
   }
 
-  const FeatureCard = ({ icon, title, description }) => {
+  const HeloCard = ({ icon, title, description }) => {
     return (
       <motion.div
         whileHover={{ scale: 1.05 }}
@@ -1036,6 +1038,20 @@ const Home = () => {
       </motion.div>
     )
   }
+  const FeatureCard = ({ icon, title, description }) => {
+    return (
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-200 flex flex-col items-center text-center"
+      >
+        <div className="text-5xl mb-3">{icon}</div>
+        <h3 className="text-xl font-semibold text-gray-800 mb-2">{title}</h3>
+        <p className="text-sm text-gray-600">{description}</p>
+      </motion.div>
+    )
+  }
+  
 
   const ServiceCard = ({ icon, image, title, description }) => {
     return (
@@ -1045,7 +1061,7 @@ const Home = () => {
         className="bg-white p-6  rounded-xl shadow-md hover:shadow-xl transition-all duration-300"
       >
         {icon}
-        <img src={image || "/placeholder.svg"} alt={title} priority="true" className="w-full h-48 object-cover rounded-md mb-4" />
+        <img src={image || "/placeholder.svg"} alt={title} priority="true" className="w-full h-48 object-cover rounded-md mb-4 p-6" />
         <h3 className="text-xl font-semibold text-gray-800 mb-2">{title}</h3>
         <p className="text-gray-600">{description}</p>
       </motion.div>
@@ -1055,7 +1071,7 @@ const Home = () => {
   return (
     <div className="font-sans bg-gray-50">
       {/* Hero Section */}
-      <div className="font-sans bg-gradient-to-r from-blue-500 to-indigo-600 min-h-screen flex items-center justify-center p-4">
+      <div className="font-sans bg-gradient-to-r from-blue-500 to-indigo-600 min-h-screen flex items-center justify-center p-2">
       <div className="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-6xl w-full">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Left Column */}
@@ -1091,13 +1107,13 @@ const Home = () => {
   
   <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-0"> 
  
-     <FeatureCard 
+     <HeloCard 
       icon={<FaMapMarkerAlt className="text-4xl text-indigo-500 mb-2" />}
       priority="true"
       title="Our Location"
       description="📍 Surunga, Jhapa, Nepal"
     />
-    <FeatureCard
+    <HeloCard
       icon={<FaPhoneAlt className="text-4xl text-indigo-500 mb-2" />}
       priority="true"
       title="Contact Us"
@@ -1108,7 +1124,7 @@ const Home = () => {
         </>
       }
     />
-    <FeatureCard
+    <HeloCard
       icon={<FaClock className="text-4xl text-indigo-500 mb-2" />}
       priority="true"
       title="Working Hours"
@@ -1123,10 +1139,11 @@ const Home = () => {
 </div> 
 
           </div>
-          <div className="relative">
+          {/* <div className="relative">
             <img src={GroupImage || "/placeholder.svg"} priority="true" alt="Patient Care"  className="w-full h-full object-cover" />
 
-          </div>
+          </div> */}
+          <ImageSlider/>
         </div>
       
       </div>
@@ -1221,7 +1238,7 @@ const Home = () => {
         We will provide quality care to our patients to prevent the onset and progression of diseases.
       </p>
       <Link
-        to="/about"
+        to="/about-us"
         className="inline-block bg-[#0B3C7F] text-white px-6 py-2 rounded-full hover:bg-[#092C5C] transition duration-300"
       >
         Learn More About Us
@@ -1287,18 +1304,19 @@ const Home = () => {
         {/* Features Section */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <FeatureCard
-            icon={<FaUserMd className="text-4xl text-blue-500 mb-4" />}
-            title="Expert Doctors"
+            icon={<FaUserMd className="text-5xl text-blue-500 mb-2" />}
+            title={<span className="text-2xl font-semibold">Expert Doctors</span>}
             description="Our team of experienced and qualified doctors are here to provide you with the best care."
           />
           <FeatureCard
-            icon={<FaHospital className="text-4xl text-blue-500 mb-4" />}
-            title="Modern Facilities"
-            description="State-of-the-art medical equipment and comfortable facilities for all your healthcare needs."
+              icon={<FaHospital className="text-5xl text-blue-500 mb-2" />}
+              title={<span className="text-2xl font-semibold">Modern Facilities</span>}
+              description="State-of-the-art medical equipment and comfortable facilities for all your healthcare needs."
           />
+        
           <FeatureCard
-            icon={<FaPhoneAlt className="text-4xl text-blue-500 mb-4" />}
-            title="24/7 Support"
+            icon={<FaPhoneAlt className="text-5xl text-blue-500 mb-2" />}
+            title={<span className="text-2xl font-semibold">24/7 Support</span>}
             description="Round-the-clock medical support to ensure you receive care when you need it most."
           />
         </section>
@@ -1339,6 +1357,7 @@ const Home = () => {
             ))}
           </div>
           </section>
+          {/* <Testimonials /> */}
 
         {/* Our Services Section */}
         <HomeServices/>

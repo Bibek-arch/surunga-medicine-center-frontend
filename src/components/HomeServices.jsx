@@ -320,7 +320,7 @@ export default function HomeServices() {
           animate="visible"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
-          {services.map((service) => (
+          {/* {services.map((service) => (
             <Link to={service.path} key={service.id} className="text-decoration-none">
               <motion.div
                 variants={cardVariants}
@@ -333,7 +333,22 @@ export default function HomeServices() {
                 <p className="text-sm text-gray-500">{service.details}</p>
               </motion.div>
             </Link>
-          ))}
+          ))} */}
+          {services.map((service) => (
+              <Link to={service.path} key={service.id} className="text-decoration-none">
+                <motion.div
+                  variants={cardVariants}
+                  whileHover="hover"
+                  className="bg-white rounded-xl p-6 cursor-pointer transform transition-all duration-300 h-full flex flex-col items-center text-center"
+                >
+                  <div className="text-5xl mb-3">{service.icon}</div>
+                  <h3 className="text-xl font-semibold text-blue-900 mb-2">{service.title}</h3>
+                  <p className="text-gray-600 mb-4">{service.description}</p>
+                  <p className="text-sm text-gray-500">{service.details}</p>
+                </motion.div>
+              </Link>
+            ))}
+
         </motion.div>
       </div>
     </div>
