@@ -140,7 +140,7 @@ const Layout = ({ children }) => {
           {/* Logo - Keeping original styling */}
           <Link
             to="/"
-            className="flex items-center min-w-0 text-blue-800 hover:text-blue-600 transition-colors duration-300"
+            className="flex flex-shrink-0 items-center min-w-0 text-blue-800 hover:text-blue-600 transition-colors duration-300"
           >
             <img
               src={favicon || "/placeholder.svg"}
@@ -179,8 +179,8 @@ const Layout = ({ children }) => {
               </Link>
             </div>
           </nav> */}
-          <nav className="hidden lg:flex items-center space-x-4 md:space-x-5 xl:space-x-8">
-  <div className="flex items-center space-x-2 sm:space-x-4 lg:space-x-6 xl:space-x-8 overflow-hidden">
+          {/* <nav className="hidden lg:flex items-center space-x-4 md:space-x-5 xl:space-x-8">
+  <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 lg:space-x-5 xl:space-x-7 overflow-hidden">
     {navItems.map((link) => (
       <Link
         key={link.to}
@@ -197,7 +197,28 @@ const Layout = ({ children }) => {
       Book Appointment
     </Link>
   </div>
+</nav> */}
+
+<nav className="hidden lg:flex items-center space-x-2 sm:space-x-3 md:space-x-4 lg:space-x-5 xl:space-x-8">
+  <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 lg:space-x-5 xl:space-x-7 overflow-hidden">
+    {navItems.map((link) => (
+      <Link
+        key={link.to}
+        to={link.to}
+        className="text-gray-900 text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[17px] font-bold hover:text-blue-600 transition-all duration-300 ease-in-out tracking-wide relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:bottom-0 after:transition-all after:duration-300 hover:after:w-full whitespace-nowrap"
+      >
+        {link.label}
+      </Link>
+    ))}
+    <Link
+      to="/contact-us"
+      className="ml-2 xl:ml-4 px-2 sm:px-3 md:px-4 lg:px-5 py-1 lg:py-1.5 xl:py-2 text-blue-600 font-bold border-2 border-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 ease-in-out text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13px] xl:text-[14px] tracking-wide whitespace-nowrap"
+    >
+      Book Appointment
+    </Link>
+  </div>
 </nav>
+
 
         </div>
       </header>

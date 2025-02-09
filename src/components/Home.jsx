@@ -1074,7 +1074,6 @@ const Home = () => {
       <div className="font-sans bg-gradient-to-r from-blue-500 to-indigo-600 min-h-screen flex items-center justify-center p-2">
       <div className="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-6xl w-full">
         <div className="grid md:grid-cols-2 gap-8">
-          {/* Left Column */}
           <div className="p-8 space-y-6">
             <motion.div
               initial={{ scale: 0, rotate: -180 }}
@@ -1131,7 +1130,6 @@ const Home = () => {
       description={
         <>
           🕒 Always Open: 6:00 AM - 8:00 PM <br />
-          {/* 🕒 8:00 PM - 6:00 AM : Emergency Services Only */}
         </>
       }
     /> 
@@ -1139,10 +1137,6 @@ const Home = () => {
 </div> 
 
           </div>
-          {/* <div className="relative">
-            <img src={GroupImage || "/placeholder.svg"} priority="true" alt="Patient Care"  className="w-full h-full object-cover" />
-
-          </div> */}
           <ImageSlider/>
         </div>
       
