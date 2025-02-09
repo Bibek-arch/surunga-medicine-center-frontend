@@ -160,7 +160,7 @@ const Layout = ({ children }) => {
           </div>
 
           {/* Desktop Navigation - Updated styling */}
-          <nav className="hidden lg:flex items-center">
+          {/* <nav className="hidden lg:flex items-center space-x-4 xl:space-x-4">
             <div className="flex items-center space-x-5 md:space-x-1 xl:space-x-8">
               {navItems.map((link) => (
                 <Link
@@ -178,7 +178,27 @@ const Layout = ({ children }) => {
                 Book Appointment
               </Link>
             </div>
-          </nav>
+          </nav> */}
+          <nav className="hidden lg:flex items-center space-x-4 md:space-x-5 xl:space-x-8">
+  <div className="flex items-center space-x-2 sm:space-x-4 lg:space-x-6 xl:space-x-8 overflow-hidden">
+    {navItems.map((link) => (
+      <Link
+        key={link.to}
+        to={link.to}
+        className="text-gray-700 text-[14px] sm:text-[15px] md:text-[16px] xl:text-[17px] font-bold hover:text-blue-600 transition-all duration-300 ease-in-out tracking-wide relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:bottom-0 after:transition-all after:duration-300 hover:after:w-full whitespace-nowrap"
+      >
+        {link.label}
+      </Link>
+    ))}
+    <Link
+      to="/contact-us"
+      className="ml-2 xl:ml-4 px-2 sm:px-4 lg:px-6 py-1.5 lg:py-2 text-blue-600 font-bold border-2 border-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 ease-in-out text-[12px] sm:text-[14px] md:text-[15px] xl:text-[16px] tracking-wide whitespace-nowrap"
+    >
+      Book Appointment
+    </Link>
+  </div>
+</nav>
+
         </div>
       </header>
 
@@ -213,12 +233,13 @@ const Layout = ({ children }) => {
         )}
       </AnimatePresence>
 
-      <main className="flex-grow container mx-auto pt-24 pb-12 px-6">
+      <main className="flex-grow w-full flex justify-center container mx-auto pt-24 pb-12 px-1">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.3 }}
+          className="max-w-[1600px] w-full px-4"
         >
           {children}
         </motion.div>
