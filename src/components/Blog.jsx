@@ -47,7 +47,7 @@ function Blog() {
       </motion.h1>
        <p className='text-center mt-1 mb-4'>🌿 Empowering Health, Inspiring Lives</p>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
         {blogs.map((blog, index) => (
           <motion.div 
             key={index} 

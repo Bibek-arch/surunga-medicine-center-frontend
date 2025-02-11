@@ -312,12 +312,13 @@ const serviceDetails = {
       features: [
         "Digital X-ray imaging with instant results",
         "3D/4D Ultrasound scanning",
+        "TVH scanning",
         "Doppler ultrasound for blood flow studies",
         "Echocardiography for heart examination",
         "High-resolution ECG services",
       ],
       additionalInfo: {
-        equipment: ["GE Healthcare Imaging Systems", "Phillips Ultrasound Machines", "Advanced ECG Monitors"],
+        equipment: ["GE Healthcare Imaging Systems", "4D Ultrasound Machines","500 MA Digital X-ray","Advanced Analyser Machine", "Advanced ECG Monitors"],
         procedures: [
           "Abdominal Ultrasound",
           "Obstetric Scans",
@@ -603,7 +604,17 @@ const serviceDetails = {
       "Certified laboratory technicians",
     ],
     additionalInfo: {
-      availableTests: ["CBC", "Lipid Profile", "Thyroid Panel", "Blood Sugar", "Liver Function Test"],
+      availableTests: ["Thyroid Panel", "Blood Sugar","RFT",
+      "LFT",
+      "Urine R/E ",
+      "Urine C/S",
+     " Vitamin level",
+      "ANA ",
+      "Anti CCP",
+      "RA factor",
+      "CRP", 
+      "Serology",
+      "HBA1C"],
       process: [
         "Book an appointment online or walk-in",
         "Sample collection by professionals",

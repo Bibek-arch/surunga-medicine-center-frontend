@@ -60,9 +60,10 @@ import dc from '../assets/dc.jpg'
 import frontpage from '../assets/frontpage.jpg'
 import group from '../assets/groupokay.jpg'
 const images = [
-  dc,
+  
   frontpage,
   group,
+  dc,
   frontpage
   // Add more image paths as needed
 ]

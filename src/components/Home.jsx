@@ -959,11 +959,14 @@ import HealthcareHero from "./happypatients.jsx"
 import ContactUs from "./Homecontact.jsx"
 import ImageSlider from "./Imagesslidee.jsx"
 import Testimonials from "./testimonials.jsx"
+import learn from '../assets/learn1.jpg'
+import learn2 from '../assets/learn2.jpg'
 const images = [
-  c1, // Placeholder image
+
+  // Placeholder image
   c3,
-  c7,
   loc,
+  c1,
   serv
 ];
 const Home = () => {
@@ -1316,7 +1319,7 @@ const Home = () => {
         </section>
 
         
-        <section className="py-6 px-6  sm:px-0 sm:py-3 bg-white rounded-lg shadow-md">
+        <section className="py-6 px-6  sm:px-0 sm:py-3  bg-blue-50 rounded-lg shadow-md">
           <motion.h2
             initial="hidden"
             animate="visible"
@@ -1351,11 +1354,11 @@ const Home = () => {
             ))}
           </div>
           </section>
-          {/* <Testimonials /> */}
+          <Testimonials />
 
         {/* Our Services Section */}
         <HomeServices/>
-        <section className="bg-white rounded-xl shadow-2xl overflow-hidden">
+        <section className=" bg-blue-50 rounded-xl shadow-2xl overflow-hidden">
           <motion.h2
             initial="hidden"
             animate="visible"

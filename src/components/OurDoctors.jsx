@@ -969,7 +969,7 @@ function OurDoctors() {
             variants={cardVariants}
             className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
           >
-            <div className="relative h-[280px]">
+            <div className="relative h-[280px] max-sm:h-[220px]">
               <img src={doctor.image || "/placeholder.svg"} alt={doctor.name} priority="true" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-900/40 to-transparent">
                 <div className="absolute bottom-4 left-4 right-4 text-white">

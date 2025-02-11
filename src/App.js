@@ -12,14 +12,14 @@ import ContactUs from './components/ContactUs'
 import PrivacyPolicy from './components/privacypolicy'
 import ServicePage from './components/ServicePage'
 import HomeServices from "./components/HomeServices"
-import WhatsAppChat from './components/WhatsappChat'
+import ChatWidget from './components/WhatsappChat'
 
 
 function App() {
   return (
     <Router>
       <Layout>
-        <WhatsAppChat/>
+        <ChatWidget/>
         <AnimatePresence mode="wait">
           <Routes>
             <Route path="/" element={<Home />} />
