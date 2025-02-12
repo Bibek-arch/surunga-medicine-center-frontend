@@ -132,7 +132,7 @@ function AboutUs() {
 
 <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
         {/* Map - Now visible on small screens too */}
-        <motion.div className="h-64 sm:h-96 w-full rounded-lg overflow-hidden shadow-lg relative" {...fadeInUp}>
+        <motion.div className="h-64 max-h-[350px] overflow-y-auto z-[1] sm:h-96 w-full rounded-lg overflow-hidden shadow-lg relative" {...fadeInUp}>
           <MapContainer center={[clinicLocation.lat, clinicLocation.lng]} zoom={16} className="h-full w-full">
             
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
