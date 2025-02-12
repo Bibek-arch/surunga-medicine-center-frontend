@@ -876,20 +876,20 @@ const ContactUs = () => {
             className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
           >
             <h3 className="text-2xl font-semibold text-teal-700 mb-6 flex items-center">
-              <Mail className="w-8 h-8 mr-3 fill-yellow-300 text-teal-500" />
+              <Mail className="w-8 h-8 mr-3 fill-orange-300 text-teal-500" />
               Get in Touch
             </h3>
             <div className="space-y-4">
               <div className="flex items-center space-x-4">
-                <MapPin className="w-6 h-6 fill-white text-black" />
+                <MapPin className="w-6 h-6 text-teal-500" />
                 <p className="text-gray-700">Kanakai-03, Surunga, Jhapa</p>
               </div>
               <div className="flex items-center space-x-4">
-                <Phone className="w-6 h-6 fill-white text-black" />
+                <Phone className="w-6 h-6 text-teal-500" />
                 <p className="text-gray-700">023-553097 | 9804964107</p>
               </div>
               <div className="flex items-center space-x-4">
-                <Mail className="w-6 h-6 fill-white text-black" />
+                <Mail className="w-6 h-6 text-teal-500" />
                 <p className="text-gray-700">surungamedicineclinic@gmail.com</p>
               </div>
             </div>
