@@ -306,7 +306,7 @@ const DoctorCard = ({ doctor, direction }) => (
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: 0.2 }}
     >
-      <h3 className="text-white text-xl font-semibold">{doctor.name}</h3>
+      <h3 className="text-white text-xl font-semibold">Dr. {doctor.name}</h3>
       <p className="text-gray-300">{doctor.specialization}</p>
     </motion.div>
   </motion.div>
