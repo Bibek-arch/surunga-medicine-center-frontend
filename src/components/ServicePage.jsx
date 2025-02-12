@@ -177,6 +177,8 @@
 
 import { useParams } from "react-router-dom"
 import { motion } from "framer-motion"
+import { useNavigate } from "react-router-dom";
+
 import vac from '../assets/servicesImg/vac.webp'
 import cons from '../assets/checkup/couns.jpg'
 import checkup from '../assets/checkup/radiograph.jpeg'
@@ -189,6 +191,8 @@ import famplanning from '../assets/family_planning.jpg'
 import labservice from '../assets/checkup/m3.jpeg'
 import xray from '../assets/checkup/xray.jpeg'
 import cosmetic from '../assets/cosmetic.webp'
+import { Phone, Mail, MapPin } from "lucide-react"
+
 const serviceDetails = {
     vaccination: {
       title: "Vaccination Services",
@@ -697,6 +701,7 @@ const serviceDetails = {
   
 
 export default function ServicePage() {
+  const navigate = useNavigate();
   const { service } = useParams()
   const serviceInfo = serviceDetails[service] || {
     title: "Service Not Found",
@@ -768,7 +773,8 @@ export default function ServicePage() {
               </motion.ul>
             </div>
           </motion.div>
-
+  {/* New Contact Card */}
+  
           {serviceInfo.additionalInfo && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -789,7 +795,9 @@ export default function ServicePage() {
                           {item}
                         </li>
                       ))}
+                      
                     </ul>
+                    
                   ) : (
                     <div className="grid gap-4">
                       {Object.entries(value).map(([subKey, subValue]) => (
@@ -815,13 +823,44 @@ export default function ServicePage() {
                         </div>
                       ))}
                     </div>
-                  )}
+                  ) }
+                  
                 </div>
               ))}
+              <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="bg-white rounded-xl overflow-hidden shadow-lg"
+          >
+            <div className="p-6">
+              <h2 className="text-2xl font-semibold text-blue-900 mb-4">Get This Service</h2>
+              <p className="text-gray-600 mb-6">Have questions about our services? Get in touch with us today!</p>
+              <ul className="space-y-4">
+                <li className="flex items-center text-gray-700">
+                  <Phone className="w-5 h-5 text-blue-500 mr-3" />
+                  <span>023-553097 | 9804964107</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <Mail className="w-5 h-5 text-blue-500 mr-3" />
+                  <span>surungamedicineclinic@gmail.com</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <MapPin className="w-5 h-5 text-blue-500 mr-3" />
+                  <span>Kanakai-03, Surunga, Jhapa</span>
+                </li>
+              </ul>
+              <button onClick={() => navigate("/contact-us")} className="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                Schedule an Appointment
+              </button>
+            </div>
+          </motion.div>
             </motion.div>
           )}
+          
         </div>
       </motion.div>
+      
     </div>
   )
 }

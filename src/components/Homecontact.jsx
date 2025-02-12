@@ -947,7 +947,7 @@ const ContactUs = () => {
             Book an appointment with our expert healthcare professionals and take the first step towards a healthier
             you.
           </p>
-          <Link to="/book-appointment">
+          <Link to="/contact-us">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
