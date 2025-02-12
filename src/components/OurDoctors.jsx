@@ -1043,10 +1043,10 @@ function OurDoctors() {
               <img
                 src={selectedDoctor.image || "/placeholder.svg"}
                 alt={selectedDoctor.name}
-                className="w-32 h-32 rounded-lg object-cover"
+                className="w-32 h-25 rounded-lg object-cover"
               />
               <div>
-                <h3 className="text-2xl font-bold text-blue-900 mb-1">{selectedDoctor.name}</h3>
+                <h3 className="text-2xl font-bold text-blue-900 mb-1">Dr. {selectedDoctor.name}</h3>
                 <p className="text-lg text-blue-700 font-medium mb-2">{selectedDoctor.specialty}</p>
                 <div className="flex items-center gap-2 text-gray-600">
                   <FaGraduationCap className="text-blue-600" />
