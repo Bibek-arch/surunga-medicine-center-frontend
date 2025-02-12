@@ -1063,9 +1063,17 @@ const Home = () => {
         whileTap={{ scale: 0.95 }}
         className="bg-white p-6  rounded-xl shadow-md hover:shadow-xl transition-all duration-300"
       >
-        {icon}
-        <img src={image || "/placeholder.svg"} alt={title} priority="true" className="w-full h-48 object-cover rounded-md mb-4 p-6" />
-        <h3 className="text-xl font-semibold text-gray-800 mb-2">{title}</h3>
+        {/* {icon} */}
+        <div className="flex justify-center">
+  <div className="p-3 rounded-full bg-blue-50 text-blue-500 text-3xl">
+    {icon}
+  </div>
+</div>
+
+
+
+        <img src={image || "/placeholder.svg"} alt={title} priority="true" className="w-full h-40 object-cover rounded-md mb-4 p-1" />
+        <h3 className="text-xl text-center font-semibold text-blue-900 mb-2">{title}</h3>
         <p className="text-gray-600">{description}</p>
       </motion.div>
     )
@@ -1354,7 +1362,7 @@ const Home = () => {
             ))}
           </div>
           </section>
-          <Testimonials />
+         
 
         {/* Our Services Section */}
         <HomeServices/>
@@ -1363,11 +1371,11 @@ const Home = () => {
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
-            className="text-3xl font-bold text-center text-gray-800 mb-2 pt-4"
+            className="text-3xl font-bold text-center text-gray-800 mb-2 pt-2"
           >
             HealthCare Categories
           </motion.h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 p-2">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 p-2 pt-10">
             <ServiceCard
               icon={<FaStethoscope className="text-4xl text-blue-500 mb-4" />}
               image={general}
@@ -1491,6 +1499,7 @@ const Home = () => {
             </Link>
           </motion.div>
         </section> */}
+         <Testimonials />
         <ContactUs/>
       </div>
 

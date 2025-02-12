@@ -973,7 +973,7 @@ function OurDoctors() {
               <img src={doctor.image || "/placeholder.svg"} alt={doctor.name} priority="true" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-900/40 to-transparent">
                 <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <h3 className="text-2xl font-bold mb-1">{doctor.name}</h3>
+                  <h3 className="text-2xl font-bold mb-1">Dr. {doctor.name}</h3>
                   <p className="text-lg font-medium text-blue-100">{doctor.specialty}</p>
                 </div>
               </div>

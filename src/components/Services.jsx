@@ -572,7 +572,7 @@ export default function HomeServices() {
               variants={cardVariants}
               whileHover="hover"
               onClick={() => (window.location.href = service.path)}
-              className="bg-white rounded-xl p-6 cursor-pointer transform transition-all duration-300"
+              className="bg-white rounded-xl p-6 cursor-pointer transform transition-all duration-300 flex flex-col items-center text-center"
             >
               <div className="text-4xl mb-4">{service.icon}</div>
               <h3 className="text-xl font-semibold text-blue-900 mb-2">{service.title}</h3>
