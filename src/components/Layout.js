@@ -280,14 +280,16 @@ const Layout = ({ children }) => {
           
           <div className="space-y-[-2]">
           <div className="mt-[-12px] flex justify-center">
+            <Link to='/'>
             <img
               src={whitelogo}
               alt="Surunga Medicine Center Logo"
               width={250}
               height={250}
-              className="object-contain mb-0 "
+              className="object-contain mb-0 hover:brightness-100 hover:saturate-[2] hover:hue-rotate-[330deg] hover:filter "
               priority
             />
+            </Link>
           </div>
           <p className="text-blue-200 text-center">Providing quality healthcare services since 2000</p>
 
