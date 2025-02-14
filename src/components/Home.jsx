@@ -1079,6 +1079,49 @@ const Home = () => {
     )
   }
 
+  const CategoryCard = ({ icon, image, title, description }) => {
+    return (
+      <motion.div
+        whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
+        transition={{ duration: 0.3 }}
+        className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+      >
+        <div className="relative h-50 w-full">
+          <img
+            src={image || "/placeholder.svg"}
+            alt={title}
+            fill
+            priority
+            className="object-cover"
+            sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+          />
+        </div>
+  
+        <div className="p-1">
+          <div className="flex justify-center mb-4">
+            <div className="bg-blue-100 p-3 rounded-full">
+              <div className="text-blue-500 text-3xl">{icon}</div>
+            </div>
+          </div>
+          <h3 className="text-xl font-bold text-gray-800 mb-3 text-center">{title}</h3>
+          <p className="text-gray-600 leading-relaxed p-3">{description}</p>
+        </div>
+      </motion.div>
+    )
+  }
+  
+  // Animation variants
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
   return (
     <div className="font-sans bg-gray-50">
       {/* Hero Section */}
@@ -1227,7 +1270,7 @@ const Home = () => {
         </motion.div>
       )}
  <div>
- <section className="py-16 bg-gray-50">
+ <section className="py-20 bg-gray-50">
   <div className="container mx-auto px-4 sm:px-6 flex flex-col lg:flex-row items-center gap-12">
     {/* Text Content */}
     <div className="lg:w-1/2">
@@ -1366,16 +1409,16 @@ const Home = () => {
 
         {/* Our Services Section */}
         <HomeServices/>
-        <section className=" bg-blue-50 rounded-xl shadow-2xl overflow-hidden">
+        {/* <section className=" bg-blue-50 rounded-xl shadow-2xl overflow-hidden">
           <motion.h2
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
-            className="text-3xl font-bold text-center text-gray-800 mb-2 pt-2"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-gray-800 mb-4 pt-6"
           >
             HealthCare Categories
           </motion.h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 p-2 pt-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 p-2 pt-6">
             <ServiceCard
               icon={<FaStethoscope className="text-4xl text-blue-500 mb-4" />}
               image={general}
@@ -1405,7 +1448,56 @@ const Home = () => {
               description="On-site lab testing, imaging, and diagnostics for accurate and timely results."
             />
           </div>
-        </section>
+        </section> */}
+          <section className="py-16 px-4 bg-gradient-to-b from-blue-50 to-white">
+      <div className="container mx-auto max-w-7xl">
+        <motion.h2
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-gray-800 mb-12"
+        >
+          HealthCare Categories
+        </motion.h2>
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
+          {[
+            {
+              icon: <FaStethoscope />,
+              image:general,
+              title: "Primary Care",
+              description: "Routine checkups and services to keep you at your best.",
+            },
+            {
+              icon: <FaHeartbeat />,
+              image:special,
+              title: "Specialized Care",
+              description: "Expert treatment for chronic conditions, women's health.",
+            },
+            {
+              icon: <FaAmbulance />,
+              image:urgent,
+              title: "Urgent Care",
+              description: "Quick and reliable treatment for emergencies and urgencies.",
+            },
+            {
+              icon: <FaFlask />,
+              image:xray,
+              title: "Diagnostics",
+              description: "On-site lab testing, imaging, and diagnostics for accurate results.",
+            },
+          ].map((card, index) => (
+            <motion.div key={index} variants={fadeInUp}>
+              <CategoryCard {...card} />
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
         
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold  text-center text-gray-800">
         Meet Our Doctors  </h1>

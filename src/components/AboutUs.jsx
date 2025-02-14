@@ -84,7 +84,7 @@ function AboutUs() {
       {/* About Us Section */}
       <motion.section className="bg-white shadow-lg rounded-lg p-8 mb-12" {...fadeInUp}>
         <h2 className="text-3xl font-bold text-blue-700 mb-4 flex items-center">
-          <FaStethoscope className="mr-2" /> About Us
+          About Us
         </h2>
         <p className="text-gray-600 leading-relaxed text-lg">
           Surunga Medicine Center & clinic is more than just a healthcare facility; we're a beacon of hope and healing in our
@@ -113,7 +113,7 @@ function AboutUs() {
           </p>
         </motion.div>
         <motion.div
-          className="bg-white shadow-lg rounded-lg p-2 transform hover:scale-105 transition duration-300"
+          className="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition duration-300"
           {...fadeInUp}
           transition={{ delay: 0.2 }}
         >
@@ -132,7 +132,7 @@ function AboutUs() {
 
 <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
         {/* Map - Now visible on small screens too */}
-        <motion.div className="h-64 max-h-[350px] overflow-y-auto z-[1] sm:h-96 w-full rounded-lg overflow-hidden shadow-lg relative" {...fadeInUp}>
+        <motion.div className="h-64 max-h-[328px] overflow-y-auto z-[1] sm:h-96 w-full rounded-lg overflow-hidden shadow-lg relative" {...fadeInUp}>
           <MapContainer center={[clinicLocation.lat, clinicLocation.lng]} zoom={16} className="h-full w-full">
             
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />

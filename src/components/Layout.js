@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link, useLocation } from 'react-router-dom'
 import favicon from '../assets/favicon.png'
+import whitelogo from '../assets/whitelogo.png'
 import { FaPhoneAlt, FaBars,FaEnvelope, FaTimes } from 'react-icons/fa'
 
 import {Phone, Mail, MapPin, Clock } from "lucide-react"
@@ -131,6 +132,7 @@ const Layout = ({ children }) => {
                 <FaPhoneAlt className="text-xs" />
                 <span>023-553097</span>
               </div>
+              
             </div>
           </div>
         </div>
@@ -269,15 +271,55 @@ const Layout = ({ children }) => {
       <footer className="bg-blue-800 text-white py-8">
       <div className="container mx-auto px-6">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-4 gap-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
+          
+          <div className="space-y-[-2]">
+          <div className="mt-[-12px] flex justify-center">
+            <img
+              src={whitelogo}
+              alt="Surunga Medicine Center Logo"
+              width={250}
+              height={250}
+              className="object-contain mb-0 "
+              priority
+            />
+          </div>
+          <p className="text-blue-200 text-center">Providing quality healthcare services since 2000</p>
+
+            {/* <h3 className="text-2xl font-semibold">Surunga Medicine & Clinic</h3> */}
+            {/* <motion.div
+              className="flex flex-col space-y-2"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.2, staggerChildren: 0.1 }}
+            >
+              <motion.a
+                href="tel:023-553097"
+                className="flex items-center text-blue-200 hover:text-white transition duration-300"
+              >
+                <Phone size={18} className="mr-2" /> 023-553097
+              </motion.a>
+              <motion.a
+                href="mailto:info@surungamedicine.com"
+                className="flex items-center text-blue-200 hover:text-white transition duration-300"
+              >
+                <Mail size={18} className="mr-2" /> surungamedicineclinic@gmail.com
+              </motion.a>
+              <motion.p className="flex items-center text-blue-200">
+                <MapPin size={18} className="mr-2" /> Surunga, Jhapa, Nepal
+              </motion.p>
+              <motion.p className="flex items-center text-blue-200">
+                <Clock size={18} className="mr-2" /> Open 24/7
+              </motion.p>
+            </motion.div> */}
+          </div>
           <div className="space-y-4">
-            <h3 className="text-2xl font-semibold">Surunga Medicine & Clinic</h3>
-            <p className="text-blue-200">Providing quality healthcare services since 2000</p>
+          <h4 className="text-xl font-semibold">Contact Details</h4>
             <motion.div
               className="flex flex-col space-y-2"
               initial={{ opacity: 0 }}
@@ -426,6 +468,7 @@ const Layout = ({ children }) => {
         </svg>
       </motion.a> */}
     </div>
+   
           </div>
         </motion.div>
         <motion.div
