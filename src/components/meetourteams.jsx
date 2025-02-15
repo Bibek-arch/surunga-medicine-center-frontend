@@ -138,7 +138,7 @@ const MeetTeams = () => {
           <span className="mb-1 inline-block rounded-full bg-gradient-to-r from-[#e5deff] to-[#f7f5ff] px-4 py-1 text-sm font-medium text-[#6e59a5] shadow-sm">
             Meet Our Team
           </span>
-          <h2 className="mb-4 bg-gradient-to-r from-[#1a1f2c] to-[#2d364d] bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl">
+          <h2 className="mb-4 bg-gradient-to-r from-[#2e3138] to-[#8ba1d9] bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl">
             Exceptional Healthcare Professionals
           </h2>
           <p className="mx-auto max-w-2xl text-[#8e9196]">
