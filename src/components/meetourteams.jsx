@@ -1,11 +1,12 @@
 import { Facebook, Instagram, Mail } from "lucide-react";
 import surungamed from '../assets/checkup/surungamed.jpg';
+import serv from '../assets/checkup/serv.jpg';
 const teamMembers = [
   {
     name: "Mr. Yagya Raj Karki",
     role: "Director",
     specialty: "Pharmacy & Clinic",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
+    image: serv,
     social: {
       facebook: "https://facebook.com",
       instagram: "https://instagram.com",
@@ -15,7 +16,7 @@ const teamMembers = [
     name: "Mr. kamal Subedi",
     role: "Marketing Manager",
     specialty: "Marketing",
-    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952",
+    image: surungamed,
     social: {
       facebook: "https://facebook.com",
       instagram: "https://instagram.com",
@@ -25,7 +26,7 @@ const teamMembers = [
     name: "Miss. Emily Chen",
     role: "Health Assistant",
     specialty: "Pharmacy & Clinic",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+    image: surungamed,
     social: {
       facebook: "https://facebook.com",
       instagram: "https://instagram.com",
@@ -35,7 +36,7 @@ const teamMembers = [
     name: "Mr. Michael Brown",
     role: "Radiologist",
     specialty: "Radiography",
-    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7",
+    image: surungamed,
     social: {
       facebook: "https://facebook.com",
       instagram: "https://instagram.com",
@@ -65,9 +66,9 @@ const teamMembers = [
 
 const MeetTeams = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f8fafc] to-white px-4 py-16">
+    <div className="min-h-screen bg-gradient-to-b from-[#f8fafc] to-white px-4 py-4">
       <div className="container mx-auto max-w-7xl">
-      <section className="py-16">
+      <section className="py-12  mb-12 ">
             <div className="grid gap-12 lg:grid-cols-2">
               <div className="space-y-6">
                 <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
@@ -133,8 +134,8 @@ const MeetTeams = () => {
               </div>
             </div>
           </section>
-        <div className="mb-16 text-center">
-          <span className="mb-2 inline-block rounded-full bg-gradient-to-r from-[#e5deff] to-[#f7f5ff] px-4 py-1 text-sm font-medium text-[#6e59a5] shadow-sm">
+        <div className="mb-20 text-center">
+          <span className="mb-1 inline-block rounded-full bg-gradient-to-r from-[#e5deff] to-[#f7f5ff] px-4 py-1 text-sm font-medium text-[#6e59a5] shadow-sm">
             Meet Our Team
           </span>
           <h2 className="mb-4 bg-gradient-to-r from-[#1a1f2c] to-[#2d364d] bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl">
@@ -151,7 +152,7 @@ const MeetTeams = () => {
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-2xl bg-white p-6 backdrop-blur-sm transition-all duration-300 hover:translate-y-[-4px] hover:shadow-[0_20px_40px_rgba(110,89,165,0.1)]"
+              className="group relative overflow-hidden rounded-2xl bg-white p-3 backdrop-blur-sm transition-all duration-300 hover:translate-y-[-4px] hover:shadow-[0_20px_40px_rgba(110,89,165,0.1)]"
             >
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               
