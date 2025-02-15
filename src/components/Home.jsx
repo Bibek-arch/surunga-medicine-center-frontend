@@ -1197,7 +1197,7 @@ const Home = () => {
       </div>
       
 
-      {showPopup && banners.length > 0 && (
+      {/* {showPopup && banners.length > 0 && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -1231,7 +1231,7 @@ const Home = () => {
             ))}
           </div>
         </motion.div>
-      )}
+      )} */}
     </div> 
 
       {showPopup && banners.length > 0 && (
