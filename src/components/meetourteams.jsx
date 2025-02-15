@@ -2,9 +2,9 @@ import { Facebook, Instagram, Mail } from "lucide-react";
 import surungamed from '../assets/checkup/surungamed.jpg';
 const teamMembers = [
   {
-    name: "Dr. Sarah Mitchell",
-    role: "Lead Physician",
-    specialty: "Internal Medicine",
+    name: "Mr. Yagya Raj Karki",
+    role: "Director",
+    specialty: "Pharmacy & Clinic",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
     social: {
       facebook: "https://facebook.com",
@@ -12,9 +12,9 @@ const teamMembers = [
     },
   },
   {
-    name: "Dr. James Wilson",
-    role: "Senior Specialist",
-    specialty: "Cardiology",
+    name: "Mr. kamal Subedi",
+    role: "Marketing Manager",
+    specialty: "Marketing",
     image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952",
     social: {
       facebook: "https://facebook.com",
@@ -22,9 +22,9 @@ const teamMembers = [
     },
   },
   {
-    name: "Dr. Emily Chen",
-    role: "Medical Director",
-    specialty: "Family Medicine",
+    name: "Miss. Emily Chen",
+    role: "Health Assistant",
+    specialty: "Pharmacy & Clinic",
     image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
     social: {
       facebook: "https://facebook.com",
@@ -32,9 +32,9 @@ const teamMembers = [
     },
   },
   {
-    name: "Dr. Michael Brown",
-    role: "Specialist",
-    specialty: "Pediatrics",
+    name: "Mr. Michael Brown",
+    role: "Radiologist",
+    specialty: "Radiography",
     image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7",
     social: {
       facebook: "https://facebook.com",
