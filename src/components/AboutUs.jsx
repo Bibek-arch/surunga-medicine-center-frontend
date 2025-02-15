@@ -13,6 +13,7 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa"
+import MeetTeams from "./meetourteams"
 
 // Custom marker icon for nearby locations
 const customIcon = new L.Icon({
@@ -213,7 +214,7 @@ function AboutUs() {
           </motion.a>
         </motion.div>
       </div>
-
+<MeetTeams/>
       {/* Additional Features Section */}
       <motion.section className="bg-white shadow-lg rounded-lg p-8" {...fadeInUp}>
         <h2 className="text-3xl font-bold text-blue-700 mb-8 text-center">Why Choose Us?</h2>

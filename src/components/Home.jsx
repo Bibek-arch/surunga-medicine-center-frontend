@@ -1232,7 +1232,7 @@ const Home = () => {
           </div>
         </motion.div>
       )}
-    </div>
+    </div> 
 
       {showPopup && banners.length > 0 && (
         <motion.div
@@ -1241,9 +1241,9 @@ const Home = () => {
           exit={{ opacity: 0 }}
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
         >
-          <div className="bg-white rounded-lg p-6 max-w-md shadow-lg relative">
+          <div className="bg-white rounded-lg p-4 max-w-md shadow-lg relative">
             <button
-              className="absolute top-2 right-2 bg-red-500 text-white rounded-full px-3 py-1 hover:bg-red-600 transition-colors duration-300"
+              className="absolute top-0 right-0 bg-red-500 text-white rounded-full px-3 py-1 hover:bg-red-600 transition-colors duration-300"
               onClick={handleClosePopup}
             >
               X
@@ -1261,7 +1261,7 @@ const Home = () => {
                   src={banner.image || "/placeholder.svg"}
                   priority="true"
                   alt={banner.caption}
-                  className="w-full h-64 object-cover rounded mb-2"
+                  className="w-full h-46 object-contain rounded mb-2"
                 />
                 <h2 className="text-xl font-semibold text-blue-600 mb-2 text-center">{banner.caption}</h2>
               </motion.div>

@@ -147,7 +147,8 @@ const Layout = ({ children }) => {
             <img
               src={favicon || "/placeholder.svg"}
               alt="Surunga Medicine Center"
-              className="w-12 h-12 sm:w-13 sm:h-13 md:w-14 md:h-14 inline-block mr-2 transition-all duration-300 hover:brightness-100 hover:saturate-[2] hover:hue-rotate-[330deg] hover:filter"
+              //hover:brightness-100 hover:saturate-[2] hover:hue-rotate-[330deg] hover:filter
+              className="w-12 h-12 sm:w-13 sm:h-13 md:w-14 md:h-14 inline-block mr-2 transition-all duration-300 "
             />
             <span className="font-bold tracking-wide font-serif text-base sm:text-lg md:text-xl lg:text-2xl whitespace-nowrap">
               Surunga Medicine & Clinic
@@ -286,7 +287,7 @@ const Layout = ({ children }) => {
               alt="Surunga Medicine Center Logo"
               width={250}
               height={250}
-              className="object-contain mb-0 hover:brightness-100 hover:saturate-[2] hover:hue-rotate-[330deg] hover:filter "
+              className="object-contain mb-0  "
               priority
             />
             </Link>
