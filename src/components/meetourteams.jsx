@@ -152,7 +152,7 @@ const MeetTeams = () => {
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-2xl bg-white p-3 backdrop-blur-sm transition-all duration-300 hover:translate-y-[-4px] hover:shadow-[0_20px_40px_rgba(110,89,165,0.1)]"
+              className="group relative overflow-hidden rounded-2xl bg-white p-3 backdrop-blur-sm transition-all duration-300 hover:shadow-[0_20px_40px_rgba(110,89,165,0.1)]"
             >
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               
@@ -161,7 +161,7 @@ const MeetTeams = () => {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="h-full w-full object-cover "
                 />
               </div>
               

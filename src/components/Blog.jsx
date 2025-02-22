@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ChevronDown, ChevronUp } from 'lucide-react';
+import ShareButton from './Shareblog';
 
 function Blog() {
   const [blogs, setBlogs] = useState([]);
@@ -13,6 +14,12 @@ function Blog() {
       .then((response) => setBlogs(response.data))
       .catch((error) => console.error(error));
   }, []);
+  const getBlogUrl = (blog, index) => {
+    const baseUrl = window.location.origin
+    // Use any unique identifier from your blog data, falling back to index if needed
+    const identifier = blog.slug || blog.title?.toLowerCase().replace(/\s+/g, "-") || index
+    return `${baseUrl}/blog/${identifier}`
+  }
 
   const faqs = [
     {
@@ -70,6 +77,7 @@ function Blog() {
                   ? blog.content
                   : `${blog.content.substring(0, 150)}...`}
               </p>
+              <div className="flex justify-between items-center">
               <button
                 className="text-blue-600 hover:text-blue-800 transition-colors duration-200 flex items-center"
                 onClick={() => setExpandedBlog(expandedBlog === index ? null : index)}
@@ -86,6 +94,22 @@ function Blog() {
                   </>
                 )}
               </button>
+              <div className="relative isolate">
+                  <ShareButton
+                    url={getBlogUrl(blog, index)}
+                    title={blog?.title || "Surunga Medicine Center Blog Post"}
+                    description={
+                      blog?.content?.substring(0, 150) ||
+                      "Read more about healthcare insights from Surunga Medicine Center"
+                    }
+                    image={blog?.image || "/placeholder.svg"}
+
+                    variant="minimal"
+                    iconSize="h-4 w-4"
+                    className="ml-4"
+                  />
+                </div>
+              </div>
             </div>
           </motion.div>
         ))}
