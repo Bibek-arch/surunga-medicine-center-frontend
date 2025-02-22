@@ -623,10 +623,10 @@
 //   const fullUrl = `${siteUrl}/blog/${blogPost.slug}`
 //   const encodedUrl = encodeURIComponent(fullUrl)
 //   const encodedTitle = encodeURIComponent(blogPost.title)
-
+//  const image = encodeURIComponent(`${siteUrl}${blogPost.image}`)
 //   // Social share URLs
 //   const shareUrls = {
-//     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&text=${image}`,
+//     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&image=${image}`,
 //     twitter: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
 //     linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`,
 //   }
@@ -753,4 +753,142 @@
 // }
 
 // export default BlogPost
+
+import { Helmet } from "react-helmet"
+import { Facebook, Twitter, Linkedin, Share2 } from "lucide-react"
+import c1 from '../assets/checkup/c1.jpeg'
+
+const BlogPost = ({ post }) => {
+  // You can replace this with your actual blog post data
+  const blogPost = {
+    title: "Understanding Common Health Issues",
+    excerpt: "Learn about preventive healthcare and common medical conditions...",
+    content: "Full blog post content here...",
+    slug: "understanding-health-issues",
+    image: c1, // Replace with your image path
+  }
+  // Use provided post data or fallback to default
+  // const blogPost = post || defaultPost
+
+  // Your website URL - replace with your actual domain
+  const siteUrl = "https://surungamedicine.com.np"
+  const fullUrl = `${siteUrl}/blog/${blogPost.slug}`
+  const fullImageUrl = blogPost.image? blogPost.image : `${siteUrl}${blogPost.image}`
+
+  // Social share URLs with blog-specific content
+  const shareUrls = {
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullUrl)}&image=${encodeURIComponent(fullImageUrl)}`,
+    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(fullUrl)}&text=${encodeURIComponent(blogPost.title)}`,
+    linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(fullUrl)}&title=${encodeURIComponent(blogPost.title)}&summary=${encodeURIComponent(blogPost.excerpt)}`,
+  }
+
+  // Handle social media sharing
+  const handleShare = (platform) => {
+    const url = shareUrls[platform]
+    window.open(url, "_blank", "width=600,height=400")
+  }
+
+  // Handle native share if available
+  const handleNativeShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: blogPost.title,
+          text: blogPost.excerpt,
+          url: fullUrl,
+        })
+      } catch (error) {
+        console.log("Error sharing:", error)
+      }
+    }
+  }
+
+  return (
+    <>
+      {/* Dynamic meta tags that will override the ones in index.html */}
+      <Helmet>
+        {/* Override basic meta tags */}
+        <title>{`${blogPost.title} - Surunga Medicine Center`}</title>
+        <meta name="description" content={blogPost.excerpt} />
+
+        {/* Override Open Graph meta tags */}
+        <meta property="og:title" content={blogPost.title} />
+        <meta property="og:description" content={blogPost.excerpt} />
+        <meta property="og:image" content={fullImageUrl} />
+        <meta property="og:url" content={fullUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Surunga Medicine Center" />
+
+        {/* Override Twitter Card meta tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={blogPost.title} />
+        <meta name="twitter:description" content={blogPost.excerpt} />
+        <meta name="twitter:image" content={fullImageUrl} />
+      </Helmet>
+
+      <article className="max-w-3xl mx-auto px-4 py-8">
+        {/* Blog Header */}
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold mb-4">{blogPost.title}</h1>
+          <p className="text-gray-600">{blogPost.excerpt}</p>
+        </div>
+
+        {/* Blog Cover Image */}
+        <div className="mb-8 rounded-lg overflow-hidden">
+          <img src={blogPost.image || "/placeholder.svg"} alt={blogPost.title} className="w-full h-auto object-cover" />
+        </div>
+
+        {/* Blog Content */}
+        <div className="prose max-w-none mb-8">{blogPost.content}</div>
+
+        {/* Share Section */}
+        <div className="border-t pt-6">
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <span className="text-sm font-medium">Share this article:</span>
+
+            {/* Social Share Buttons */}
+            <div className="flex gap-2">
+              <button
+                onClick={() => handleShare("facebook")}
+                className="p-2 rounded-full hover:bg-gray-100"
+                aria-label="Share on Facebook"
+              >
+                <Facebook className="h-5 w-5" />
+              </button>
+
+              <button
+                onClick={() => handleShare("twitter")}
+                className="p-2 rounded-full hover:bg-gray-100"
+                aria-label="Share on Twitter"
+              >
+                <Twitter className="h-5 w-5" />
+              </button>
+
+              <button
+                onClick={() => handleShare("linkedin")}
+                className="p-2 rounded-full hover:bg-gray-100"
+                aria-label="Share on LinkedIn"
+              >
+                <Linkedin className="h-5 w-5" />
+              </button>
+
+              {/* Native Share Button (Mobile) */}
+              {navigator?.share && (
+                <button
+                  onClick={handleNativeShare}
+                  className="p-2 rounded-full hover:bg-gray-100"
+                  aria-label="Share using device options"
+                >
+                  <Share2 className="h-5 w-5" />
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      </article>
+    </>
+  )
+}
+
+export default BlogPost
 

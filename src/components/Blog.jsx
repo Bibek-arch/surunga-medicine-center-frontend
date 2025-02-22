@@ -3,6 +3,7 @@ import axios from 'axios';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ChevronDown, ChevronUp } from 'lucide-react';
 import ShareButton from './Shareblog';
+import BlogPost from './Shareblog';
 
 function Blog() {
   const [blogs, setBlogs] = useState([]);
@@ -95,7 +96,7 @@ function Blog() {
                 )}
               </button>
               <div className="relative isolate">
-                  <ShareButton
+                  <BlogPost
                     url={getBlogUrl(blog, index)}
                     title={blog?.title || "Surunga Medicine Center Blog Post"}
                     description={
