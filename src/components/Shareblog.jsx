@@ -1232,176 +1232,221 @@
 // };
 
 // export default BlogPost;
-import React, { useState } from 'react';
-import { Helmet } from 'react-helmet';
-import { Facebook, Twitter, Linkedin, Share2, Link2 } from 'lucide-react';
+// import React, { useState } from 'react';
+// import { Helmet } from 'react-helmet';
+// import { Facebook, Twitter, Linkedin, Share2, Link2 } from 'lucide-react';
 
-const BlogPost = ({ 
-  title = "Blog Post Title", 
-  description = "Blog post description or excerpt...", 
-  image = "/default-image.jpg",
-  slug = "blog-post",
-  content = "Blog post content...",
-  tags = [] // optional array of tags/keywords
-}) => {
-  const [showPreview, setShowPreview] = useState(false);
+// const BlogPost = ({ 
+//   title = "Blog Post Title", 
+//   description = "Blog post description or excerpt...", 
+//   image = "/default-image.jpg",
+//   slug = "blog-post",
+//   content = "Blog post content...",
+//   tags = [] // optional array of tags/keywords
+// }) => {
+//   const [showPreview, setShowPreview] = useState(false);
   
-  // Get the full URLs
-  const siteUrl = window.location.origin;
-  const fullUrl = `${siteUrl}/blog/${slug}`;
-  const fullImageUrl = image?.startsWith('http') ? image : `${siteUrl}${image}`;
+//   // Get the full URLs
+//   const siteUrl = window.location.origin;
+//   const fullUrl = `${siteUrl}/blog/${slug}`;
+//   const fullImageUrl = image?.startsWith('http') ? image : `${siteUrl}${image}`;
 
-  // Prepare sharing URLs
-  const shareUrls = {
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullUrl)}`,
-    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(fullUrl)}&text=${encodeURIComponent(title)}${tags.length ? '&hashtags=' + tags.join(',') : ''}`,
-    linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(fullUrl)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(description)}`
-  };
+//   // Prepare sharing URLs
+//   const shareUrls = {
+//     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullUrl)}`,
+//     twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(fullUrl)}&text=${encodeURIComponent(title)}${tags.length ? '&hashtags=' + tags.join(',') : ''}`,
+//     linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(fullUrl)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(description)}`
+//   };
 
-  // Handle social media sharing
-  const handleShare = (platform) => {
-    setShowPreview(true); // Show preview before sharing
-    const url = shareUrls[platform];
-    const windowWidth = 600;
-    const windowHeight = 400;
-    const windowLeft = (window.innerWidth - windowWidth) / 2;
-    const windowTop = (window.innerHeight - windowHeight) / 2;
+//   // Handle social media sharing
+//   const handleShare = (platform) => {
+//     setShowPreview(true); // Show preview before sharing
+//     const url = shareUrls[platform];
+//     const windowWidth = 600;
+//     const windowHeight = 400;
+//     const windowLeft = (window.innerWidth - windowWidth) / 2;
+//     const windowTop = (window.innerHeight - windowHeight) / 2;
     
-    window.open(
-      url,
-      'share-dialog',
-      `width=${windowWidth},height=${windowHeight},left=${windowLeft},top=${windowTop},menubar=no,toolbar=no,status=no`
-    );
-  };
+//     window.open(
+//       url,
+//       'share-dialog',
+//       `width=${windowWidth},height=${windowHeight},left=${windowLeft},top=${windowTop},menubar=no,toolbar=no,status=no`
+//     );
+//   };
 
-  // Handle native share if available (mobile devices)
-  const handleNativeShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title,
-          text: description,
-          url: fullUrl,
-        });
-      } catch (error) {
-        console.log('Error sharing:', error);
-      }
-    }
-  };
+//   // Handle native share if available (mobile devices)
+//   const handleNativeShare = async () => {
+//     if (navigator.share) {
+//       try {
+//         await navigator.share({
+//           title,
+//           text: description,
+//           url: fullUrl,
+//         });
+//       } catch (error) {
+//         console.log('Error sharing:', error);
+//       }
+//     }
+//   };
 
-  // Copy link to clipboard
-  const copyLink = async () => {
-    try {
-      await navigator.clipboard.writeText(fullUrl);
-      alert('Link copied to clipboard!');
-    } catch (err) {
-      console.error('Failed to copy link:', err);
-    }
-  };
+//   // Copy link to clipboard
+//   const copyLink = async () => {
+//     try {
+//       await navigator.clipboard.writeText(fullUrl);
+//       alert('Link copied to clipboard!');
+//     } catch (err) {
+//       console.error('Failed to copy link:', err);
+//     }
+//   };
+
+//   return (
+//     <div className="max-w-3xl mx-auto px-4 py-8">
+//       <Helmet>
+//         <meta property="og:title" content={title} />
+//         <meta property="og:description" content={description} />
+//         <meta property="og:image" content={fullImageUrl} />
+//         <meta property="og:url" content={fullUrl} />
+//         <meta property="og:type" content="article" />
+//         <meta name="twitter:card" content="summary_large_image" />
+//         <meta name="twitter:title" content={title} />
+//         <meta name="twitter:description" content={description} />
+//         <meta name="twitter:image" content={fullImageUrl} />
+//       </Helmet>
+
+//       {/* Share Preview Dialog */}
+//       {showPreview && (
+//         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+//           <div className="bg-white rounded-lg max-w-lg w-full overflow-hidden">
+//             {/* Header */}
+//             <div className="flex justify-between items-center p-4 border-b">
+//               <h3 className="font-semibold">Share Post</h3>
+//               <button 
+//                 onClick={() => setShowPreview(false)}
+//                 className="text-gray-500 hover:text-gray-700"
+//               >
+//                 ×
+//               </button>
+//             </div>
+
+//             {/* Preview Card */}
+//             <div className="p-4">
+//               <div className="border rounded-lg overflow-hidden">
+//                 <img 
+//                   src={image || "/placeholder.svg"} 
+//                   alt={title}
+//                   className="w-full h-48 object-cover"
+//                 />
+//                 <div className="p-3">
+//                   <p className="text-gray-500 text-sm">{siteUrl}</p>
+//                   <h4 className="font-semibold mt-1">{title}</h4>
+//                   <p className="text-gray-600 text-sm mt-1">{description}</p>
+//                 </div>
+//               </div>
+//             </div>
+
+//             {/* Share Buttons */}
+//             <div className="p-4 bg-gray-50">
+//               <div className="flex gap-2 justify-center">
+//                 <button
+//                   onClick={() => handleShare('facebook')}
+//                   className="p-2 rounded-full bg-[#1877F2] text-white hover:bg-opacity-90"
+//                   aria-label="Share on Facebook"
+//                 >
+//                   <Facebook className="h-5 w-5" />
+//                 </button>
+                
+//                 <button
+//                   onClick={() => handleShare('twitter')}
+//                   className="p-2 rounded-full bg-[#1DA1F2] text-white hover:bg-opacity-90"
+//                   aria-label="Share on Twitter"
+//                 >
+//                   <Twitter className="h-5 w-5" />
+//                 </button>
+                
+//                 <button
+//                   onClick={() => handleShare('linkedin')}
+//                   className="p-2 rounded-full bg-[#0A66C2] text-white hover:bg-opacity-90"
+//                   aria-label="Share on LinkedIn"
+//                 >
+//                   <Linkedin className="h-5 w-5" />
+//                 </button>
+
+//                 <button
+//                   onClick={copyLink}
+//                   className="p-2 rounded-full bg-gray-600 text-white hover:bg-opacity-90"
+//                   aria-label="Copy link"
+//                 >
+//                   <Link2 className="h-5 w-5" />
+//                 </button>
+
+//                 {navigator?.share && (
+//                   <button
+//                     onClick={handleNativeShare}
+//                     className="p-2 rounded-full bg-gray-600 text-white hover:bg-opacity-90"
+//                     aria-label="More share options"
+//                   >
+//                     <Share2 className="h-5 w-5" />
+//                   </button>
+//                 )}
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       )}
+
+//       {/* Share Trigger Button */}
+//       <button
+//         onClick={() => setShowPreview(true)}
+//         className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+//       >
+//         <Share2 className="h-5 w-5" />
+//         Share this post
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default BlogPost;
+
+
+import React, { useEffect } from "react";
+import ShareButtons from "./ShareButton";
+
+const BlogPost = ({ post }) => {
+  console.log(post)
+  useEffect(() => {
+    document.title = post.title; // Change page title dynamically
+
+    // Create meta tags dynamically
+    const metaTags = [
+      { property: "og:title", content: post.title },
+      { property: "og:description", content: post.description },
+      { property: "og:image", content: post.image },
+      { property: "og:url", content: `https://surungamedicine.com.np/blog/${post.id}` },
+    ];
+
+    metaTags.forEach(({ property, content }) => {
+      const meta = document.createElement("meta");
+      meta.setAttribute("property", property);
+      meta.setAttribute("content", content);
+      document.head.appendChild(meta);
+    });
+
+    return () => {
+      metaTags.forEach(({ property }) => {
+        const meta = document.querySelector(`meta[property='${property}']`);
+        if (meta) document.head.removeChild(meta);
+      });
+    };
+  }, [post]);
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8">
-      <Helmet>
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={fullImageUrl} />
-        <meta property="og:url" content={fullUrl} />
-        <meta property="og:type" content="article" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={fullImageUrl} />
-      </Helmet>
+    <div className="container mx-auto p-4">
+      <h1 className="text-3xl font-bold">{post.title}</h1>
+      <img src={post.image} alt={post.title} className="w-full rounded-lg my-4" />
+      <p className="text-gray-700">{post.content}</p>
 
-      {/* Share Preview Dialog */}
-      {showPreview && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg max-w-lg w-full overflow-hidden">
-            {/* Header */}
-            <div className="flex justify-between items-center p-4 border-b">
-              <h3 className="font-semibold">Share Post</h3>
-              <button 
-                onClick={() => setShowPreview(false)}
-                className="text-gray-500 hover:text-gray-700"
-              >
-                ×
-              </button>
-            </div>
-
-            {/* Preview Card */}
-            <div className="p-4">
-              <div className="border rounded-lg overflow-hidden">
-                <img 
-                  src={image || "/placeholder.svg"} 
-                  alt={title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-3">
-                  <p className="text-gray-500 text-sm">{siteUrl}</p>
-                  <h4 className="font-semibold mt-1">{title}</h4>
-                  <p className="text-gray-600 text-sm mt-1">{description}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Share Buttons */}
-            <div className="p-4 bg-gray-50">
-              <div className="flex gap-2 justify-center">
-                <button
-                  onClick={() => handleShare('facebook')}
-                  className="p-2 rounded-full bg-[#1877F2] text-white hover:bg-opacity-90"
-                  aria-label="Share on Facebook"
-                >
-                  <Facebook className="h-5 w-5" />
-                </button>
-                
-                <button
-                  onClick={() => handleShare('twitter')}
-                  className="p-2 rounded-full bg-[#1DA1F2] text-white hover:bg-opacity-90"
-                  aria-label="Share on Twitter"
-                >
-                  <Twitter className="h-5 w-5" />
-                </button>
-                
-                <button
-                  onClick={() => handleShare('linkedin')}
-                  className="p-2 rounded-full bg-[#0A66C2] text-white hover:bg-opacity-90"
-                  aria-label="Share on LinkedIn"
-                >
-                  <Linkedin className="h-5 w-5" />
-                </button>
-
-                <button
-                  onClick={copyLink}
-                  className="p-2 rounded-full bg-gray-600 text-white hover:bg-opacity-90"
-                  aria-label="Copy link"
-                >
-                  <Link2 className="h-5 w-5" />
-                </button>
-
-                {navigator?.share && (
-                  <button
-                    onClick={handleNativeShare}
-                    className="p-2 rounded-full bg-gray-600 text-white hover:bg-opacity-90"
-                    aria-label="More share options"
-                  >
-                    <Share2 className="h-5 w-5" />
-                  </button>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Share Trigger Button */}
-      <button
-        onClick={() => setShowPreview(true)}
-        className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-      >
-        <Share2 className="h-5 w-5" />
-        Share this post
-      </button>
+      <ShareButtons post={post} />
     </div>
   );
 };
