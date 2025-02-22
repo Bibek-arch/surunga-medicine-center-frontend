@@ -890,177 +890,520 @@
 //   )
 // }
 
+// // export default BlogPost
+// import { Helmet } from "react-helmet"
+// import { Facebook, Twitter, Linkedin, Share2 } from "lucide-react"
+// import c1 from '../assets/checkup/c1.jpeg'
+// const BlogPost = ({ post }) => {
+//   // You can replace this with your actual blog post data
+//   const defaultPost = {
+//     title: "Understanding Common Health Issues",
+//     excerpt: "Learn about preventive healthcare and common medical conditions...",
+//     content: "Full blog post content here...",
+//     slug: "understanding-health-issues",
+//     image:c1,
+//   }
+
+//   // Use provided post data or fallback to default
+//   const blogPost = defaultPost
+
+//   // Your website URL - replace with your actual domain
+//   const siteUrl = window.location.origin // This will get your current domain
+//   const fullUrl = `${siteUrl}/blog/${blogPost.slug}`
+//   const fullImageUrl = blogPost.image.startsWith("http") ? blogPost.image : `${siteUrl}${blogPost.image}`
+
+//   // Social share URLs with blog-specific content
+//   const shareUrls = {
+//     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullUrl)}&image=${encodeURIComponent(fullImageUrl)}`,
+//     twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(fullUrl)}&text=${encodeURIComponent(blogPost.title)}`,
+//     linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(fullUrl)}&title=${encodeURIComponent(blogPost.title)}&summary=${encodeURIComponent(blogPost.excerpt)}`,
+//   }
+
+//   // Handle social media sharing
+//   const handleShare = (platform) => {
+//     const url = shareUrls[platform]
+//     window.open(url, "_blank", "width=600,height=400")
+//   }
+
+//   // Handle native share if available
+//   const handleNativeShare = async () => {
+//     if (navigator.share) {
+//       try {
+//         await navigator.share({
+//           title: blogPost.title,
+//           text: blogPost.excerpt,
+//           url: fullUrl,
+//         })
+//       } catch (error) {
+//         console.log("Error sharing:", error)
+//       }
+//     }
+//   }
+
+//   // Create a script element for structured data
+//   const structuredData = {
+//     "@context": "https://schema.org",
+//     "@type": "Article",
+//     headline: blogPost.title,
+//     description: blogPost.excerpt,
+//     image: fullImageUrl,
+//     author: {
+//       "@type": "Organization",
+//       name: "Surunga Medicine Center",
+//     },
+//     publisher: {
+//       "@type": "Organization",
+//       name: "Surunga Medicine Center",
+//       logo: {
+//         "@type": "ImageObject",
+//         url: `${siteUrl}/logo.png`,
+//       },
+//     },
+//     url: fullUrl,
+//   }
+
+//   return (
+//     <>
+//       <Helmet>
+//         {/* Remove existing meta tags first */}
+//         <meta property="og:title" content="" />
+//         <meta property="og:description" content="" />
+//         <meta property="og:image" content="" />
+//         <meta property="og:url" content="" />
+//         <meta property="og:type" content="" />
+//         <meta name="twitter:card" content="" />
+//         <meta name="twitter:title" content="" />
+//         <meta name="twitter:description" content="" />
+//         <meta name="twitter:image" content="" />
+
+//         {/* Add new meta tags */}
+//         <title>{`${blogPost.title} - Surunga Medicine Center`}</title>
+//         <meta name="description" content={blogPost.excerpt} />
+
+//         {/* OpenGraph tags */}
+//         <meta property="og:title" content={blogPost.title} />
+//         <meta property="og:description" content={blogPost.excerpt} />
+//         <meta property="og:image" content={fullImageUrl} />
+//         <meta property="og:url" content={fullUrl} />
+//         <meta property="og:type" content="article" />
+//         <meta property="og:site_name" content="Surunga Medicine Center" />
+
+//         {/* Twitter Card tags */}
+//         <meta name="twitter:card" content="summary_large_image" />
+//         <meta name="twitter:title" content={blogPost.title} />
+//         <meta name="twitter:description" content={blogPost.excerpt} />
+//         <meta name="twitter:image" content={fullImageUrl} />
+
+//         {/* Add structured data */}
+//         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+//       </Helmet>
+
+//       <article className="max-w-3xl mx-auto px-4 py-8">
+//         {/* Blog Header */}
+//         <div className="mb-8">
+//           <h1 className="text-4xl font-bold mb-4">{blogPost.title}</h1>
+//           <p className="text-gray-600">{blogPost.excerpt}</p>
+//         </div>
+
+//         {/* Blog Cover Image */}
+//         <div className="mb-8 rounded-lg overflow-hidden">
+//           <img src={blogPost.image || "/placeholder.svg"} alt={blogPost.title} className="w-full h-auto object-cover" />
+//         </div>
+
+//         {/* Blog Content */}
+//         <div className="prose max-w-none mb-8">{blogPost.content}</div>
+
+//         {/* Share Section */}
+//         <div className="border-t pt-6">
+//           <div className="flex flex-col sm:flex-row items-center gap-4">
+//             <span className="text-sm font-medium">Share this article:</span>
+
+//             {/* Social Share Buttons */}
+//             <div className="flex gap-2">
+//               <button
+//                 onClick={() => handleShare("facebook")}
+//                 className="p-2 rounded-full hover:bg-gray-100"
+//                 aria-label="Share on Facebook"
+//               >
+//                 <Facebook className="h-5 w-5" />
+//               </button>
+
+//               <button
+//                 onClick={() => handleShare("twitter")}
+//                 className="p-2 rounded-full hover:bg-gray-100"
+//                 aria-label="Share on Twitter"
+//               >
+//                 <Twitter className="h-5 w-5" />
+//               </button>
+
+//               <button
+//                 onClick={() => handleShare("linkedin")}
+//                 className="p-2 rounded-full hover:bg-gray-100"
+//                 aria-label="Share on LinkedIn"
+//               >
+//                 <Linkedin className="h-5 w-5" />
+//               </button>
+
+//               {/* Native Share Button (Mobile) */}
+//               {navigator?.share && (
+//                 <button
+//                   onClick={handleNativeShare}
+//                   className="p-2 rounded-full hover:bg-gray-100"
+//                   aria-label="Share using device options"
+//                 >
+//                   <Share2 className="h-5 w-5" />
+//                 </button>
+//               )}
+//             </div>
+//           </div>
+//         </div>
+//       </article>
+//     </>
+//   )
+// }
+
 // export default BlogPost
-import { Helmet } from "react-helmet"
-import { Facebook, Twitter, Linkedin, Share2 } from "lucide-react"
-import c1 from '../assets/checkup/c1.jpeg'
-const BlogPost = ({ post }) => {
-  // You can replace this with your actual blog post data
-  const defaultPost = {
-    title: "Understanding Common Health Issues",
-    excerpt: "Learn about preventive healthcare and common medical conditions...",
-    content: "Full blog post content here...",
-    slug: "understanding-health-issues",
-    image:c1,
-  }
 
-  // Use provided post data or fallback to default
-  const blogPost = defaultPost
+// import React from 'react';
+// import { Helmet } from 'react-helmet';
+// import { Facebook, Twitter, Linkedin, Share2 } from 'lucide-react';
 
-  // Your website URL - replace with your actual domain
-  const siteUrl = window.location.origin // This will get your current domain
-  const fullUrl = `${siteUrl}/blog/${blogPost.slug}`
-  const fullImageUrl = blogPost.image.startsWith("http") ? blogPost.image : `${siteUrl}${blogPost.image}`
+// const BlogPost = ({ 
+//   title = "Blog Post Title", 
+//   description = "Blog post description or excerpt...", 
+//   image = "/default-image.jpg",
+//   slug = "blog-post",
+//   content = "Blog post content...",
+//   tags = [] // optional array of tags/keywords
+// }) => {
+//   // Get the full URLs
+//   const siteUrl = window.location.origin;
+//   const fullUrl = `${siteUrl}/blog/${slug}`;
+//   const fullImageUrl = image?.startsWith('http') ? image : `${siteUrl}${image}`;
 
-  // Social share URLs with blog-specific content
+//   // Prepare sharing URLs
+//   const shareUrls = {
+//     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullUrl)}`,
+//     twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(fullUrl)}&text=${encodeURIComponent(title)}${tags.length ? '&hashtags=' + tags.join(',') : ''}`,
+//     linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(fullUrl)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(description)}`
+//   };
+
+//   // Handle social media sharing
+//   const handleShare = (platform) => {
+//     const url = shareUrls[platform];
+//     const windowWidth = 600;
+//     const windowHeight = 400;
+//     const windowLeft = (window.innerWidth - windowWidth) / 2;
+//     const windowTop = (window.innerHeight - windowHeight) / 2;
+    
+//     window.open(
+//       url,
+//       'share-dialog',
+//       `width=${windowWidth},height=${windowHeight},left=${windowLeft},top=${windowTop},menubar=no,toolbar=no,status=no`
+//     );
+//   };
+
+//   // Handle native share if available (mobile devices)
+//   const handleNativeShare = async () => {
+//     if (navigator.share) {
+//       try {
+//         await navigator.share({
+//           title,
+//           text: description,
+//           url: fullUrl,
+//         });
+//       } catch (error) {
+//         console.log('Error sharing:', error);
+//       }
+//     }
+//   };
+
+//   // Styles object to keep the component self-contained
+//   const styles = {
+//     container: "max-w-3xl mx-auto px-4 py-8",
+//     header: "mb-8",
+//     title: "text-4xl font-bold mb-4",
+//     description: "text-gray-600",
+//     imageContainer: "mb-8 rounded-lg overflow-hidden",
+//     image: "w-full h-auto object-cover",
+//     content: "prose max-w-none mb-8",
+//     shareContainer: "border-t pt-6 mt-8",
+//     shareWrapper: "flex flex-col sm:flex-row items-center gap-4",
+//     shareText: "text-sm font-medium",
+//     buttonContainer: "flex gap-3",
+//     shareButton: "p-2 rounded-full hover:bg-gray-100 transition-colors",
+//   };
+
+//   return (
+//     <article className={styles.container}>
+//       {/* Meta tags for social sharing */}
+//       <Helmet>
+//         {/* Basic Meta Tags */}
+//         <title>{title}</title>
+//         <meta name="description" content={description} />
+//         <meta name="keywords" content={tags.join(', ')} />
+
+//         {/* OpenGraph Meta Tags */}
+//         <meta property="og:title" content={title} />
+//         <meta property="og:description" content={description} />
+//         <meta property="og:image" content={fullImageUrl} />
+//         <meta property="og:url" content={fullUrl} />
+//         <meta property="og:type" content="article" />
+
+//         {/* Twitter Card Meta Tags */}
+//         <meta name="twitter:card" content="summary_large_image" />
+//         <meta name="twitter:title" content={title} />
+//         <meta name="twitter:description" content={description} />
+//         <meta name="twitter:image" content={fullImageUrl} />
+//       </Helmet>
+
+//       {/* Blog Header */}
+//       <div className={styles.header}>
+//         <h1 className={styles.title}>{title}</h1>
+//         <p className={styles.description}>{description}</p>
+//       </div>
+
+//       {/* Blog Cover Image */}
+//       <div className={styles.imageContainer}>
+//         <img
+//           src={image || "/placeholder.svg"}
+//           alt={title}
+//           className={styles.image}
+//         />
+//       </div>
+
+//       {/* Blog Content */}
+//       <div className={styles.content}>
+//         {content}
+//       </div>
+
+//       {/* Share Section */}
+//       <div className={styles.shareContainer}>
+//         <div className={styles.shareWrapper}>
+//           <span className={styles.shareText}>Share this article:</span>
+          
+//           <div className={styles.buttonContainer}>
+//             {/* Facebook */}
+//             <button
+//               onClick={() => handleShare('facebook')}
+//               className={styles.shareButton}
+//               aria-label="Share on Facebook"
+//               style={{ color: '#1877F2' }}
+//             >
+//               <Facebook className="h-5 w-5" />
+//             </button>
+            
+//             {/* Twitter */}
+//             <button
+//               onClick={() => handleShare('twitter')}
+//               className={styles.shareButton}
+//               aria-label="Share on Twitter"
+//               style={{ color: '#1DA1F2' }}
+//             >
+//               <Twitter className="h-5 w-5" />
+//             </button>
+            
+//             {/* LinkedIn */}
+//             <button
+//               onClick={() => handleShare('linkedin')}
+//               className={styles.shareButton}
+//               aria-label="Share on LinkedIn"
+//               style={{ color: '#0A66C2' }}
+//             >
+//               <Linkedin className="h-5 w-5" />
+//             </button>
+
+//             {/* Native Share Button (Mobile) */}
+//             {navigator?.share && (
+//               <button
+//                 onClick={handleNativeShare}
+//                 className={styles.shareButton}
+//                 aria-label="Share using device options"
+//                 style={{ color: '#666666' }}
+//               >
+//                 <Share2 className="h-5 w-5" />
+//               </button>
+//             )}
+//           </div>
+//         </div>
+//       </div>
+//     </article>
+//   );
+// };
+
+// export default BlogPost;
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
+import { Facebook, Twitter, Linkedin, Share2, Link2 } from 'lucide-react';
+
+const BlogPost = ({ 
+  title = "Blog Post Title", 
+  description = "Blog post description or excerpt...", 
+  image = "/default-image.jpg",
+  slug = "blog-post",
+  content = "Blog post content...",
+  tags = [] // optional array of tags/keywords
+}) => {
+  const [showPreview, setShowPreview] = useState(false);
+  
+  // Get the full URLs
+  const siteUrl = window.location.origin;
+  const fullUrl = `${siteUrl}/blog/${slug}`;
+  const fullImageUrl = image?.startsWith('http') ? image : `${siteUrl}${image}`;
+
+  // Prepare sharing URLs
   const shareUrls = {
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullUrl)}&image=${encodeURIComponent(fullImageUrl)}`,
-    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(fullUrl)}&text=${encodeURIComponent(blogPost.title)}`,
-    linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(fullUrl)}&title=${encodeURIComponent(blogPost.title)}&summary=${encodeURIComponent(blogPost.excerpt)}`,
-  }
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullUrl)}`,
+    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(fullUrl)}&text=${encodeURIComponent(title)}${tags.length ? '&hashtags=' + tags.join(',') : ''}`,
+    linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(fullUrl)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(description)}`
+  };
 
   // Handle social media sharing
   const handleShare = (platform) => {
-    const url = shareUrls[platform]
-    window.open(url, "_blank", "width=600,height=400")
-  }
+    setShowPreview(true); // Show preview before sharing
+    const url = shareUrls[platform];
+    const windowWidth = 600;
+    const windowHeight = 400;
+    const windowLeft = (window.innerWidth - windowWidth) / 2;
+    const windowTop = (window.innerHeight - windowHeight) / 2;
+    
+    window.open(
+      url,
+      'share-dialog',
+      `width=${windowWidth},height=${windowHeight},left=${windowLeft},top=${windowTop},menubar=no,toolbar=no,status=no`
+    );
+  };
 
-  // Handle native share if available
+  // Handle native share if available (mobile devices)
   const handleNativeShare = async () => {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: blogPost.title,
-          text: blogPost.excerpt,
+          title,
+          text: description,
           url: fullUrl,
-        })
+        });
       } catch (error) {
-        console.log("Error sharing:", error)
+        console.log('Error sharing:', error);
       }
     }
-  }
+  };
 
-  // Create a script element for structured data
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: blogPost.title,
-    description: blogPost.excerpt,
-    image: fullImageUrl,
-    author: {
-      "@type": "Organization",
-      name: "Surunga Medicine Center",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Surunga Medicine Center",
-      logo: {
-        "@type": "ImageObject",
-        url: `${siteUrl}/logo.png`,
-      },
-    },
-    url: fullUrl,
-  }
+  // Copy link to clipboard
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(fullUrl);
+      alert('Link copied to clipboard!');
+    } catch (err) {
+      console.error('Failed to copy link:', err);
+    }
+  };
 
   return (
-    <>
+    <div className="max-w-3xl mx-auto px-4 py-8">
       <Helmet>
-        {/* Remove existing meta tags first */}
-        <meta property="og:title" content="" />
-        <meta property="og:description" content="" />
-        <meta property="og:image" content="" />
-        <meta property="og:url" content="" />
-        <meta property="og:type" content="" />
-        <meta name="twitter:card" content="" />
-        <meta name="twitter:title" content="" />
-        <meta name="twitter:description" content="" />
-        <meta name="twitter:image" content="" />
-
-        {/* Add new meta tags */}
-        <title>{`${blogPost.title} - Surunga Medicine Center`}</title>
-        <meta name="description" content={blogPost.excerpt} />
-
-        {/* OpenGraph tags */}
-        <meta property="og:title" content={blogPost.title} />
-        <meta property="og:description" content={blogPost.excerpt} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
         <meta property="og:image" content={fullImageUrl} />
         <meta property="og:url" content={fullUrl} />
         <meta property="og:type" content="article" />
-        <meta property="og:site_name" content="Surunga Medicine Center" />
-
-        {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={blogPost.title} />
-        <meta name="twitter:description" content={blogPost.excerpt} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={fullImageUrl} />
-
-        {/* Add structured data */}
-        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
-      <article className="max-w-3xl mx-auto px-4 py-8">
-        {/* Blog Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-4">{blogPost.title}</h1>
-          <p className="text-gray-600">{blogPost.excerpt}</p>
-        </div>
-
-        {/* Blog Cover Image */}
-        <div className="mb-8 rounded-lg overflow-hidden">
-          <img src={blogPost.image || "/placeholder.svg"} alt={blogPost.title} className="w-full h-auto object-cover" />
-        </div>
-
-        {/* Blog Content */}
-        <div className="prose max-w-none mb-8">{blogPost.content}</div>
-
-        {/* Share Section */}
-        <div className="border-t pt-6">
-          <div className="flex flex-col sm:flex-row items-center gap-4">
-            <span className="text-sm font-medium">Share this article:</span>
-
-            {/* Social Share Buttons */}
-            <div className="flex gap-2">
-              <button
-                onClick={() => handleShare("facebook")}
-                className="p-2 rounded-full hover:bg-gray-100"
-                aria-label="Share on Facebook"
+      {/* Share Preview Dialog */}
+      {showPreview && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg max-w-lg w-full overflow-hidden">
+            {/* Header */}
+            <div className="flex justify-between items-center p-4 border-b">
+              <h3 className="font-semibold">Share Post</h3>
+              <button 
+                onClick={() => setShowPreview(false)}
+                className="text-gray-500 hover:text-gray-700"
               >
-                <Facebook className="h-5 w-5" />
+                ×
               </button>
+            </div>
 
-              <button
-                onClick={() => handleShare("twitter")}
-                className="p-2 rounded-full hover:bg-gray-100"
-                aria-label="Share on Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </button>
+            {/* Preview Card */}
+            <div className="p-4">
+              <div className="border rounded-lg overflow-hidden">
+                <img 
+                  src={image || "/placeholder.svg"} 
+                  alt={title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-3">
+                  <p className="text-gray-500 text-sm">{siteUrl}</p>
+                  <h4 className="font-semibold mt-1">{title}</h4>
+                  <p className="text-gray-600 text-sm mt-1">{description}</p>
+                </div>
+              </div>
+            </div>
 
-              <button
-                onClick={() => handleShare("linkedin")}
-                className="p-2 rounded-full hover:bg-gray-100"
-                aria-label="Share on LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </button>
-
-              {/* Native Share Button (Mobile) */}
-              {navigator?.share && (
+            {/* Share Buttons */}
+            <div className="p-4 bg-gray-50">
+              <div className="flex gap-2 justify-center">
                 <button
-                  onClick={handleNativeShare}
-                  className="p-2 rounded-full hover:bg-gray-100"
-                  aria-label="Share using device options"
+                  onClick={() => handleShare('facebook')}
+                  className="p-2 rounded-full bg-[#1877F2] text-white hover:bg-opacity-90"
+                  aria-label="Share on Facebook"
                 >
-                  <Share2 className="h-5 w-5" />
+                  <Facebook className="h-5 w-5" />
                 </button>
-              )}
+                
+                <button
+                  onClick={() => handleShare('twitter')}
+                  className="p-2 rounded-full bg-[#1DA1F2] text-white hover:bg-opacity-90"
+                  aria-label="Share on Twitter"
+                >
+                  <Twitter className="h-5 w-5" />
+                </button>
+                
+                <button
+                  onClick={() => handleShare('linkedin')}
+                  className="p-2 rounded-full bg-[#0A66C2] text-white hover:bg-opacity-90"
+                  aria-label="Share on LinkedIn"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </button>
+
+                <button
+                  onClick={copyLink}
+                  className="p-2 rounded-full bg-gray-600 text-white hover:bg-opacity-90"
+                  aria-label="Copy link"
+                >
+                  <Link2 className="h-5 w-5" />
+                </button>
+
+                {navigator?.share && (
+                  <button
+                    onClick={handleNativeShare}
+                    className="p-2 rounded-full bg-gray-600 text-white hover:bg-opacity-90"
+                    aria-label="More share options"
+                  >
+                    <Share2 className="h-5 w-5" />
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </article>
-    </>
-  )
-}
+      )}
 
-export default BlogPost
+      {/* Share Trigger Button */}
+      <button
+        onClick={() => setShowPreview(true)}
+        className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+      >
+        <Share2 className="h-5 w-5" />
+        Share this post
+      </button>
+    </div>
+  );
+};
 
+export default BlogPost;
