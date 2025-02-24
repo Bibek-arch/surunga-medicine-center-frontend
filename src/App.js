@@ -13,6 +13,7 @@ import PrivacyPolicy from './components/privacypolicy'
 import ServicePage from './components/ServicePage'
 import HomeServices from "./components/HomeServices"
 import ChatWidget from './components/WhatsappChat'
+import BlogPost from './components/Shareblog'
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path="/" element={<HomeServices />} />
             <Route path="/services" element={<Services />} /> 
             <Route path="/blog" element={<Blog />} />
+            {/* <Route path="/blog/:id" element={<BlogPost />} /> 👈 Dynamic route */}
             <Route path="/our-doctors" element={<OurDoctors />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact-us" element={<ContactUs />} />

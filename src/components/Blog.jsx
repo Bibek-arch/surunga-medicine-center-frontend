@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Calendar, Clock, ChevronDown, ChevronUp } from 'lucide-react';
 import ShareButton from './Shareblog';
 import BlogPost from './Shareblog';
+import ShareBlog from './Shareblog';
 
 function Blog() {
   const [blogs, setBlogs] = useState([]);
@@ -95,7 +96,7 @@ function Blog() {
                   </>
                 )}
               </button>
-              <div className="relative isolate">
+              {/* <div className="relative isolate">
                   <BlogPost
                     url={getBlogUrl(blog, index)}
                     title={blog?.title || "Surunga Medicine Center Blog Post"}
@@ -109,7 +110,11 @@ function Blog() {
                     iconSize="h-4 w-4"
                     className="ml-4"
                   />
-                </div>
+                </div> */}
+                 <ShareBlog
+    url={getBlogUrl(blog, index)}
+    title={blog.title || "Surunga Medicine Center Blog"}
+  />
               </div>
             </div>
           </motion.div>
