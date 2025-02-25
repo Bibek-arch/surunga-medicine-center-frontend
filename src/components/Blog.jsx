@@ -375,18 +375,188 @@
 
 
 
+// import React, { useEffect, useState } from 'react';
+// import axios from 'axios';
+// import { motion } from 'framer-motion';
+// import { Calendar, Clock, ChevronDown, ChevronUp } from 'lucide-react';
+// import { Helmet } from 'react-helmet';
+// import ShareButtons from './ShareButtons'; // Import the ShareButtons component
+
+// function Blog() {
+//   const [blogs, setBlogs] = useState([]);
+//   const [expandedBlog, setExpandedBlog] = useState(null);
+//   const [expandedFaq, setExpandedFaq] = useState(null);
+//   const [selectedBlog, setSelectedBlog] = useState(null);
+
+//   useEffect(() => {
+//     axios.get(`${process.env.REACT_APP_API_URL}/blogs/`)
+//       .then((response) => setBlogs(response.data))
+//       .catch((error) => console.error(error));
+//   }, []);
+
+//   const getBlogUrl = (blog, index) => {
+//     const baseUrl = window.location.origin;
+//     const identifier = blog.slug || blog.title?.toLowerCase().replace(/\s+/g, '-') || index;
+//     return `${baseUrl}/blog/${identifier}`;
+//   };
+
+//   const handleBlogSelection = (blog, index) => {
+//     setSelectedBlog(blog);
+//     setExpandedBlog(expandedBlog === index ? null : index);
+//   };
+
+//   const faqs = [
+//     {
+//       question: "What services does Surunga Medicine Center offer?",
+//       answer: "Surunga Medicine Center offers a wide range of medical services including general consultations, specialized treatments, diagnostic services, and preventive care programs."
+//     },
+//     // Add more FAQs here
+//   ];
+
+//   return (
+//     <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+//       {/* Dynamic meta tags for the selected blog */}
+//       {selectedBlog && (
+//         <Helmet>
+//           <title>{selectedBlog.title}</title>
+//           <meta property="og:title" content={selectedBlog.title} />
+//           <meta property="og:description" content={selectedBlog.content.substring(0, 150)} />
+//           <meta property="og:image" content={selectedBlog.image || "/placeholder.svg"} />
+//           <meta property="og:url" content={getBlogUrl(selectedBlog, blogs.indexOf(selectedBlog))} />
+//           <meta property="og:type" content="article" />
+
+//           <meta name="twitter:card" content="summary_large_image" />
+//           <meta name="twitter:title" content={selectedBlog.title} />
+//           <meta name="twitter:description" content={selectedBlog.content.substring(0, 150)} />
+//           <meta name="twitter:image" content={selectedBlog.image || "/placeholder.svg"} />
+//           <meta name="twitter:url" content={getBlogUrl(selectedBlog, blogs.indexOf(selectedBlog))} />
+//         </Helmet>
+//       )}
+
+//       <motion.h1
+//         className="text-4xl font-extrabold text-center text-black mt-0 mb-8"
+//         initial={{ opacity: 0, y: -50 }}
+//         animate={{ opacity: 1, y: 0 }}
+//         transition={{ duration: 0.5 }}
+//       >
+//         Surunga Medicine Center Blogs
+//       </motion.h1>
+//       <p className="text-center mt-1 mb-4">🌿 Empowering Health, Inspiring Lives</p>
+
+//       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
+//         {blogs.map((blog, index) => (
+//           <motion.div
+//             key={index}
+//             className="bg-white shadow-lg rounded-xl overflow-hidden"
+//             initial={{ opacity: 0, y: 50 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.5, delay: index * 0.1 }}
+//           >
+//             <img src={blog.image || "/placeholder.svg"} priority="true" alt={blog.title} className="w-full h-62 object-cover" />
+//             <div className="p-6">
+//               <h3 className="text-xl font-bold text-blue-700 mb-2">{blog.title}</h3>
+//               <div className="flex items-center text-gray-500 mb-4">
+//                 <Calendar className="w-4 h-4 mr-2" />
+//                 <span className="text-sm">{new Date(blog.published_date).toDateString()}</span>
+//                 <Clock className="w-4 h-4 ml-4 mr-2" />
+//                 <span className="text-sm">5 min read</span>
+//               </div>
+//               <p className="text-gray-600 mb-4">
+//                 {expandedBlog === index
+//                   ? blog.content
+//                   : `${blog.content.substring(0, 150)}...`}
+//               </p>
+//               <div className="flex justify-between items-center">
+//                 <button
+//                   className="text-blue-600 hover:text-blue-800 transition-colors duration-200 flex items-center"
+//                   onClick={() => handleBlogSelection(blog, index)}
+//                 >
+//                   {expandedBlog === index ? (
+//                     <>
+//                       Read less
+//                       <ChevronUp className="w-4 h-4 ml-1" />
+//                     </>
+//                   ) : (
+//                     <>
+//                       Read more
+//                       <ChevronDown className="w-4 h-4 ml-1" />
+//                     </>
+//                   )}
+               
+//                 {/* Add ShareButtons here */}
+//                 <ShareButtons
+//                   url={getBlogUrl(selectedBlog, index)}
+//                   title={blog.title}
+//                   image={blog.image || "/placeholder.svg"}
+//                 />
+//                  </button>
+//               </div>
+//             </div>
+//           </motion.div>
+//         ))}
+//       </div>
+
+//       {/* FAQ Section */}
+//       <motion.div
+//         className="mt-16 lg:col-span-1"
+//         initial={{ opacity: 0 }}
+//         animate={{ opacity: 1 }}
+//         transition={{ duration: 0.5, delay: 0.5 }}
+//       >
+//         <h2 className="text-3xl font-bold text-blue-600 mb-8 text-center">Frequently Asked Questions</h2>
+//         <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
+//           {faqs.map((faq, index) => (
+//             <motion.div
+//               key={index}
+//               className="border border-gray-200 rounded-lg overflow-hidden"
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               transition={{ duration: 0.3, delay: index * 0.1 }}
+//             >
+//               <button
+//                 className="flex justify-between items-center w-full p-4 text-left bg-white hover:bg-gray-50 transition-colors duration-200"
+//                 onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+//               >
+//                 <span className="font-medium text-gray-900">{faq.question}</span>
+//                 {expandedFaq === index ? (
+//                   <ChevronUp className="w-5 h-5 text-blue-600" />
+//                 ) : (
+//                   <ChevronDown className="w-5 h-5 text-blue-600" />
+//                 )}
+//               </button>
+//               {expandedFaq === index && (
+//                 <motion.div
+//                   className="p-4 bg-gray-50"
+//                   initial={{ opacity: 0, height: 0 }}
+//                   animate={{ opacity: 1, height: 'auto' }}
+//                   transition={{ duration: 0.3 }}
+//                 >
+//                   <p className="text-gray-600">{faq.answer}</p>
+//                 </motion.div>
+//               )}
+//             </motion.div>
+//           ))}
+//         </div>
+//       </motion.div>
+//     </div>
+//   );
+// }
+
+// export default Blog;
+
+
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ChevronDown, ChevronUp } from 'lucide-react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async'; // For dynamic meta tags
 import ShareButtons from './ShareButtons'; // Import the ShareButtons component
 
 function Blog() {
   const [blogs, setBlogs] = useState([]);
   const [expandedBlog, setExpandedBlog] = useState(null);
   const [expandedFaq, setExpandedFaq] = useState(null);
-  const [selectedBlog, setSelectedBlog] = useState(null);
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/blogs/`)
@@ -394,15 +564,11 @@ function Blog() {
       .catch((error) => console.error(error));
   }, []);
 
+  // Function to generate the blog URL
   const getBlogUrl = (blog, index) => {
     const baseUrl = window.location.origin;
     const identifier = blog.slug || blog.title?.toLowerCase().replace(/\s+/g, '-') || index;
     return `${baseUrl}/blog/${identifier}`;
-  };
-
-  const handleBlogSelection = (blog, index) => {
-    setSelectedBlog(blog);
-    setExpandedBlog(expandedBlog === index ? null : index);
   };
 
   const faqs = [
@@ -415,23 +581,22 @@ function Blog() {
 
   return (
     <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      {/* Dynamic meta tags for the selected blog */}
-      {selectedBlog && (
-        <Helmet>
-          <title>{selectedBlog.title}</title>
-          <meta property="og:title" content={selectedBlog.title} />
-          <meta property="og:description" content={selectedBlog.content.substring(0, 150)} />
-          <meta property="og:image" content={selectedBlog.image || "/placeholder.svg"} />
-          <meta property="og:url" content={getBlogUrl(selectedBlog, blogs.indexOf(selectedBlog))} />
-          <meta property="og:type" content="article" />
+      {/* Dynamic meta tags for each blog post */}
+      {blogs.map((blog, index) => (
+        <Helmet key={index}>
+          <meta property="og:title" content={blog.title} data-react-helmet="true" />
+          <meta property="og:description" content={blog.content.substring(0, 150)} data-react-helmet="true" />
+          <meta property="og:image" content={blog.image || "/placeholder.svg"} data-react-helmet="true" />
+          <meta property="og:url" content={getBlogUrl(blog, index)} data-react-helmet="true" />
+          <meta property="og:type" content="article" data-react-helmet="true" />
 
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content={selectedBlog.title} />
-          <meta name="twitter:description" content={selectedBlog.content.substring(0, 150)} />
-          <meta name="twitter:image" content={selectedBlog.image || "/placeholder.svg"} />
-          <meta name="twitter:url" content={getBlogUrl(selectedBlog, blogs.indexOf(selectedBlog))} />
+          <meta name="twitter:card" content="summary_large_image" data-react-helmet="true" />
+          <meta name="twitter:title" content={blog.title} data-react-helmet="true" />
+          <meta name="twitter:description" content={blog.content.substring(0, 150)} data-react-helmet="true" />
+          <meta name="twitter:image" content={blog.image || "/placeholder.svg"} data-react-helmet="true" />
+          <meta name="twitter:url" content={getBlogUrl(blog, index)} data-react-helmet="true" />
         </Helmet>
-      )}
+      ))}
 
       <motion.h1
         className="text-4xl font-extrabold text-center text-black mt-0 mb-8"
@@ -469,7 +634,7 @@ function Blog() {
               <div className="flex justify-between items-center">
                 <button
                   className="text-blue-600 hover:text-blue-800 transition-colors duration-200 flex items-center"
-                  onClick={() => handleBlogSelection(blog, index)}
+                  onClick={() => setExpandedBlog(expandedBlog === index ? null : index)}
                 >
                   {expandedBlog === index ? (
                     <>
