@@ -638,7 +638,6 @@
 
 // export default BlogPost
 
-import { Helmet } from "react-helmet" // Install with: npm install react-helmet
 import Button from "./Button"
 // Install icons with: npm install lucide-react
 import c from '../assets/checkup/c1.jpeg'
@@ -695,27 +694,7 @@ const BlogPost = ({ post }) => {
 
   return (
     <>
-      <Helmet>
-        {/* Basic Meta Tags */}
-        <title>
-          {blogPost.title} | {blogPost.clinicName}
-        </title>
-        <meta name="description" content={blogPost.excerpt} />
-
-        {/* Open Graph Meta Tags for Facebook */}
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content={blogPost.title} />
-        <meta property="og:description" content={blogPost.excerpt} />
-        <meta property="og:image" content={`${siteUrl}${blogPost.image}`} />
-        <meta property="og:url" content={fullUrl} />
-        <meta property="og:site_name" content={blogPost.clinicName} />
-
-        {/* Twitter Card Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={blogPost.title} />
-        <meta name="twitter:description" content={blogPost.excerpt} />
-        <meta name="twitter:image" content={`${siteUrl}${blogPost.image}`} />
-      </Helmet>
+      
 
       <article className="max-w-3xl mx-auto px-4 py-8">
         {/* Blog Header */}
