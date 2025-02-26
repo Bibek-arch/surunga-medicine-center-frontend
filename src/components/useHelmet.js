@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 
-export function useMeta({ title, description, image, url }) {
+export function useMeta({ id, title, description, image, url }) {
   useEffect(() => {
-    if (title) document.title = `${title} | Smc`;
 
     const setMetaTag = (attribute, value) => {
       let element = document.querySelector(`meta[${attribute}]`);
@@ -13,6 +12,8 @@ export function useMeta({ title, description, image, url }) {
       }
       element.setAttribute("content", value);
     };
+    if (title) document.title = `${title} | Smc`;
+
     if (description) setMetaTag(`name="description"`, description);
     if (image) setMetaTag(`property="og:image"`, image);
     if (url) setMetaTag(`property="og:url"`, url);
