@@ -802,20 +802,22 @@ import { Facebook, Twitter, Linkedin, Share2 } from "lucide-react";
 
 const BlogPost = ({ post }) => {
   const defaultPost = {
+    id:1,
     title: "Understanding Common Health",
     excerpt: "Learn about preventive healthcare and common medical conditions...",
     content: "Full blog post content here...",
     slug: "understanding-health-issues",
     image: c,
     clinicName: "Smc",
-    clinicUrl: "https://surungamedicine.com.np/blogs",
+    clinicUrl: "https://surungamedicine.com/",
   };
 
   const blogPost = post || defaultPost;
-  const siteUrl = "https://surungamedicine.com.np/";
-  const fullUrl = `${siteUrl}/blogs/${blogPost.title}`;
+  const siteUrl = "https://surungamedicine.com.np/blog";
+  const fullUrl = `${siteUrl}/${blogPost.id}`;
 
   useMeta({
+    id:blogPost.id,
     title: blogPost.title,
     description: blogPost.excerpt,
     image: `${siteUrl}${blogPost.image}`,

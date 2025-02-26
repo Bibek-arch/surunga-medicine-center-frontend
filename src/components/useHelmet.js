@@ -13,7 +13,6 @@ export function useMeta({ title, description, image, url }) {
       }
       element.setAttribute("content", value);
     };
-
     if (description) setMetaTag(`name="description"`, description);
     if (image) setMetaTag(`property="og:image"`, image);
     if (url) setMetaTag(`property="og:url"`, url);
