@@ -703,12 +703,12 @@ const BlogPost = ({ post }) => {
         <meta name="description" content={blogPost.excerpt} />
 
         {/* Open Graph Meta Tags for Facebook */}
-        {/* <meta property="og:type" content="article" />
+        <meta property="og:type" content="article" />
         <meta property="og:title" content={blogPost.title} />
         <meta property="og:description" content={blogPost.excerpt} />
         <meta property="og:image" content={`${siteUrl}${blogPost.image}`} />
         <meta property="og:url" content={fullUrl} />
-        <meta property="og:site_name" content={blogPost.clinicName} /> */}
+        <meta property="og:site_name" content={blogPost.clinicName} />
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
