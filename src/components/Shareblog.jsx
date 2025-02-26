@@ -647,7 +647,7 @@ import { Facebook, Twitter, Linkedin, Share2 } from "lucide-react"
 const BlogPost = ({ post }) => {
   // You can replace this with your actual blog post data
   const defaultPost = {
-    title: "Understanding Common Health Issues",
+    title: "Understanding Common Health ",
     excerpt: "Learn about preventive healthcare and common medical conditions...",
     content: "Full blog post content here...",
     slug: "understanding-health-issues",
@@ -661,7 +661,7 @@ const BlogPost = ({ post }) => {
 
   // Construct URLs for sharing
   const siteUrl = "https://surungamedicine.com.np/" // Replace with your domain
-  const fullUrl = `${siteUrl}/blogs/${blogPost.slug}`
+  const fullUrl = `${siteUrl}/blogs/${blogPost.title}`
   const encodedUrl = encodeURIComponent(fullUrl)
   const encodedTitle = encodeURIComponent(blogPost.title)
  const image = encodeURIComponent(`${siteUrl}${blogPost.image}`)
