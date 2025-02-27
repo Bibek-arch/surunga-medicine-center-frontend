@@ -49,7 +49,7 @@ const BlogPostPage = () => {
     useEffect(() => {
         const fetchPost = async () => {
             try {
-                const response = await fetch(`/api/blog/${id}/`); // Include trailing slash
+                const response = await fetch(`/blog/${id}/`); // Include trailing slash
                 const data = await response.json();
                 setPost(data);
             } catch (error) {
