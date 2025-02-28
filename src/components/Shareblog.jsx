@@ -812,33 +812,52 @@
 // };
 
 // export default BlogPost;
+// import React from "react";
+// import { Facebook, Instagram } from "lucide-react";
+
+// const ShareBlog = ({ url, title }) => {
+//   const shareOnFacebook = () => {
+//     const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+//     window.open(fbShareUrl, "_blank");
+//   };
+
+//   const shareOnInstagram = () => {
+//     alert("Instagram sharing requires manual copy-pasting. Copy the link below:");
+//     navigator.clipboard.writeText(url);
+//   };
+
+//   return (
+//     <div className="flex space-x-2 mt-2">
+//       <button onClick={shareOnFacebook} className="text-blue-600 hover:text-blue-800">
+//         <Facebook className="w-6 h-6" />
+//       </button>
+//       <button onClick={shareOnInstagram} className="text-pink-500 hover:text-pink-700">
+//         <Instagram className="w-6 h-6" />
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default ShareBlog;
 import React from "react";
-import { Facebook, Instagram } from "lucide-react";
 
-const ShareBlog = ({ url, title }) => {
-  const shareOnFacebook = () => {
-    const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-    window.open(fbShareUrl, "_blank");
-  };
-
-  const shareOnInstagram = () => {
-    alert("Instagram sharing requires manual copy-pasting. Copy the link below:");
-    navigator.clipboard.writeText(url);
-  };
+const ShareBlog = ({ slug, title }) => {
+  const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=https://surungamedicine.com.np/meta/blog/${slug}`;
 
   return (
-    <div className="flex space-x-2 mt-2">
-      <button onClick={shareOnFacebook} className="text-blue-600 hover:text-blue-800">
-        <Facebook className="w-6 h-6" />
-      </button>
-      <button onClick={shareOnInstagram} className="text-pink-500 hover:text-pink-700">
-        <Instagram className="w-6 h-6" />
-      </button>
-    </div>
+    <a
+      href={shareUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-blue-600 hover:text-blue-800 transition-colors duration-200"
+    >
+      Share on Facebook
+    </a>
   );
 };
 
 export default ShareBlog;
+
 
 // import { useMeta } from "./useHelmet";
 // import Button from "./Button";

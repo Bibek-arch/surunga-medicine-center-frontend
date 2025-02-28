@@ -450,7 +450,7 @@ function Blog() {
   const getBlogUrl = (blog, index) => {
     const baseUrl = window.location.origin;
     const identifier =
-      blog.slug || blog.title?.toLowerCase().replace(/\s+/g, "-") || index;
+      blog.id;
     return `${baseUrl}/blog/${identifier}`;
   };
 
