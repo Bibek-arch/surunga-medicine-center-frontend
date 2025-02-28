@@ -569,7 +569,7 @@ function Blog() {
                     </>
                   )}
                 </button>
-                <ShareBlog url={getBlogUrl(blog, index)} title={blog.title} />
+                {/* <ShareBlog url={getBlogUrl(blog, index)} title={blog.title} /> */}
               </div>
             </div>
           </motion.div>
