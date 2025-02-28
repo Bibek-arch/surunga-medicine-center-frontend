@@ -793,25 +793,52 @@
 //   )
 // }
 
-// export default BlogPost
-import React from 'react';
-import { FacebookShareButton, FacebookIcon } from 'react-share';
+// // export default BlogPost
+// import React from 'react';
+// import { FacebookShareButton, FacebookIcon } from 'react-share';
 
-const BlogPost = ({ post={} }) => {
-  const postUrl = `https://surungamedicine.com.np/blog/${post.id}`; // Replace with your domain
-  console.log(post);
-    return (
-        <div>
-            <h1>{post.title}</h1>
-            <p>{post.content}</p>
-            <FacebookShareButton url={postUrl} quote={post.title}>
-                <FacebookIcon size={32} round />
-            </FacebookShareButton>
-        </div>
-    );
+// const BlogPost = ({ post={} }) => {
+//   const postUrl = `https://surungamedicine.com.np/blog/${post.id}`; // Replace with your domain
+//   console.log(post);
+//     return (
+//         <div>
+//             <h1>{post.title}</h1>
+//             <p>{post.content}</p>
+//             <FacebookShareButton url={postUrl} quote={post.title}>
+//                 <FacebookIcon size={32} round />
+//             </FacebookShareButton>
+//         </div>
+//     );
+// };
+
+// export default BlogPost;
+import React from "react";
+import { Facebook, Instagram } from "lucide-react";
+
+const ShareBlog = ({ url, title }) => {
+  const shareOnFacebook = () => {
+    const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+    window.open(fbShareUrl, "_blank");
+  };
+
+  const shareOnInstagram = () => {
+    alert("Instagram sharing requires manual copy-pasting. Copy the link below:");
+    navigator.clipboard.writeText(url);
+  };
+
+  return (
+    <div className="flex space-x-2 mt-2">
+      <button onClick={shareOnFacebook} className="text-blue-600 hover:text-blue-800">
+        <Facebook className="w-6 h-6" />
+      </button>
+      <button onClick={shareOnInstagram} className="text-pink-500 hover:text-pink-700">
+        <Instagram className="w-6 h-6" />
+      </button>
+    </div>
+  );
 };
 
-export default BlogPost;
+export default ShareBlog;
 
 // import { useMeta } from "./useHelmet";
 // import Button from "./Button";
