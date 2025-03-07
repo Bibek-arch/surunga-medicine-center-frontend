@@ -150,7 +150,6 @@ export default Blog;
 // import axios from 'axios';
 // import { motion } from 'framer-motion';
 // import { Calendar, Clock, ChevronDown, ChevronUp } from 'lucide-react';
-// import BlogPost from './Shareblog';
 
 // function Blog() {
 //   const [blogs, setBlogs] = useState([]);
@@ -247,7 +246,7 @@ export default Blog;
 //                     </>
 //                   )}
 //                 </button>
-//                 <div className="relative isolate">
+//                 {/* <div className="relative isolate">
 //                   <BlogPost
 //                     url={getBlogUrl(blog, index)}
 //                     title={blog?.title || "Surunga Medicine Center Blog Post"}
@@ -257,7 +256,7 @@ export default Blog;
 //                     iconSize="h-4 w-4"
 //                     className="ml-4"
 //                   />
-//                 </div>
+//                 </div> */}
 //               </div>
 //             </div>
 //           </motion.div>
@@ -407,7 +406,7 @@ export default Blog;
 //   );
 // }
 
-// // export default Blog;
+// export default Blog;
 // import React, { useEffect, useState } from "react";
 // import axios from "axios";
 // import { motion } from "framer-motion";

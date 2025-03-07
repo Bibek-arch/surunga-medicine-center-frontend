@@ -39,7 +39,7 @@ const testimonials = [
     doctor: {
       name: "Dr. Sandip Chandra Shrestha",
       role: "Diabetes and Thyroid specialist",
-      image: sandip,
+      image: doc8,
     },
   },
   {
@@ -83,14 +83,14 @@ const testimonials = [
   },
   {
     category: "Pediatric Care",
-    text: "Dr. Rabindra's way with children is amazing. He made my son's regular check-ups and vaccinations a pleasant experience.",
+    text: "Dr. Rabindra Simkhada is an exceptional cardiologist who provided me with the best care for my heart condition. His expertise is truly life-saving.",
     patient: {
       name: "Sarita Gurung",
       type: "Parent of Pediatric Patient",
     },
     doctor: {
       name: "Dr. Rabindra Simkhada",
-      role: "Pediatrician",
+      role: "Cardiologist",
       image: rabin,
     },
   },
